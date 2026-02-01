@@ -298,5 +298,6 @@ give me a break, some job or money or something, i'm tired af.
 i really hate my procrastination
 
 who are reading this, love u chikistrikis.
+all this comments were made cuz ai is scaring me, they have a lot of power on me, i don't know what to do, pls help me <3
 
 i'm gonna close the papoi <3
