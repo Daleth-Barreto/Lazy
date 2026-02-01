@@ -274,6 +274,13 @@ install_to_system() {
         cp -r examples/* "$LAZY_HOME/examples/"
         success "Installed examples to ~/.lazy/examples"
     fi
+
+    # Copy uninstall script
+    if [ -f "scripts/uninstall.sh" ]; then
+        cp scripts/uninstall.sh "$LAZY_HOME/uninstall.sh"
+        chmod +x "$LAZY_HOME/uninstall.sh"
+        success "Installed uninstall script"
+    fi
     
     # Create wrapper script
     cat > "$LAZY_BIN/lazy" << 'EOF'
@@ -286,11 +293,14 @@ BINARY="$LAZY_HOME/bin/lazy-compiler"
 
 # Check for special commands first
 if [ "$1" = "uninstall" ]; then
-    echo "Uninstalling Lazy..."
-    rm -rf "$LAZY_HOME"
-    sudo rm -f /usr/local/bin/lazy 2>/dev/null
-    echo "Lazy uninstalled"
-    echo "You may want to remove LAZY_HOME from your shell config"
+    if [ -f "$LAZY_HOME/uninstall.sh" ]; then
+        exec "$LAZY_HOME/uninstall.sh"
+    else
+        echo "Uninstall script not found. Removing manually..."
+        rm -rf "$LAZY_HOME"
+        sudo rm -f /usr/local/bin/lazy 2>/dev/null
+        echo "Lazy uninstalled"
+    fi
     exit 0
 fi
 
