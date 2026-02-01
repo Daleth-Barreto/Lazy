@@ -11,7 +11,7 @@ option(BUILD_TESTS "Build test suite" ON)
 option(ENABLE_AI "Enable AI features (requires TensorFlow Lite)" OFF)  # Disabled by default for MVP
 
 # Find dependencies
-find_package(LLVM REQUIRED CONFIG)
+find_package(LLVM 18.1 REQUIRED CONFIG)
 find_package(FLEX REQUIRED)
 find_package(BISON REQUIRED)
 

@@ -30,9 +30,10 @@ install_linux_deps() {
         libcurl4-openssl-dev nlohmann-json3-dev libzstd-dev zlib1g-dev
 
     # Try installing LLVM 18 first (Universe repo on Ubuntu 24.04)
-    if apt-cache search llvm-18 | grep -q "llvm-18"; then
+    # Use 'apt-cache show' to verify exact package existence, not just regex match
+    if apt-cache show llvm-18 >/dev/null 2>&1; then
         echo "[INFO] Installing LLVM 18 from repository..."
-        sudo apt-get install -y llvm-18 llvm-18-dev clang-18
+        sudo apt-get install -y llvm-18 llvm-18-dev clang-18 libllvm-18-ocaml-dev libclang-18-dev
         
         # Create symlinks if needed (clang -> clang-18)
         # (This is optional but helpful for CMake if it doesn't find clang-18 automatically)
