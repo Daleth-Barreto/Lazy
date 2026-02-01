@@ -164,7 +164,8 @@ func power_of_two(exponent: int) -> int {
 }
 // AI generates implementation, compiler verifies it passes all @verify conditions
 ```
-A-> i know, im a fuking genius (pls make it work)
+A-> i know, im a fuking genius (pls make it work, I don't have any idea if that's good)
+
 
 ### Ollama Integration
 Call local LLMs directly from your code.
