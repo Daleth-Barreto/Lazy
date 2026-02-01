@@ -55,7 +55,7 @@ private:
     std::string fixAssertCalls(std::string code);
     
     // Model configuration
-    AIModel currentModel_ = AIModel::QWEN2_05B;
+    AIModel currentModel_ = AIModel::CODELLAMA_7B;
     
     std::string getModelNameForEnum(AIModel model) const {
         switch (model) {

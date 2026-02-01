@@ -183,6 +183,14 @@ llvm::Value* LLVMCodeGenImpl::generateExpression(ASTNode* node) {
             if (bin_node->op == "-") return isFloat ? builder->CreateFSub(L, R, "subtmp") : builder->CreateSub(L, R, "subtmp");
             if (bin_node->op == "*") return isFloat ? builder->CreateFMul(L, R, "multmp") : builder->CreateMul(L, R, "multmp");
             if (bin_node->op == "/") return isFloat ? builder->CreateFDiv(L, R, "divtmp") : builder->CreateSDiv(L, R, "divtmp");
+            if (bin_node->op == "%") {
+                // Modulo operator (integer only)
+                if (isFloat) {
+                    std::cerr << "Error: Modulo operator not supported for float types\n";
+                    return nullptr;
+                }
+                return builder->CreateSRem(L, R, "modtmp");
+            }
             if (bin_node->op == "<") return isFloat ? builder->CreateFCmpOLT(L, R) : builder->CreateICmpSLT(L, R);
             if (bin_node->op == ">") return isFloat ? builder->CreateFCmpOGT(L, R) : builder->CreateICmpSGT(L, R);
             if (bin_node->op == "==") return isFloat ? builder->CreateFCmpOEQ(L, R) : builder->CreateICmpEQ(L, R);

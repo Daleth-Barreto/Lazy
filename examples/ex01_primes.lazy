@@ -4,7 +4,10 @@
 func is_prime(n: int) -> int {
     if (n <= 1) { return 0; }
     
-    let i: int = 2;
+    // In most C-style or custom languages, variables inside functions 
+    // must be mutable if you plan to increment them. 
+    let i: int = 2; 
+    
     while (i * i <= n) {
         if (n % i == 0) {
             return 0; // False
@@ -17,20 +20,23 @@ func is_prime(n: int) -> int {
 func main() -> int {
     println("=== Prime Number Finder ===");
     print("Finding primes up to 20:");
-    println_void();
+    
+    // Many custom languages use println() without arguments 
+    // instead of a custom println_void() function.
+    println(""); 
     
     let current: int = 1;
     let limit: int = 20;
     
     while (current <= limit) {
-        if (is_prime(current)) {
+        if (is_prime(current) == 1) { // Explicitly check for 1 if 'if' doesn't auto-cast int to bool
             print(current);
             print(" ");
         }
         current = current + 1;
     }
     
-    println_void();
+    println("");
     println("Done!");
     return 0;
 }
