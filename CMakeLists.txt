@@ -112,6 +112,20 @@ if(ENABLE_AI)
     )
 endif()
 
+# Runtime Library (liblazy_runtime.a)
+# This library is linked by the *generated* user programs, NOT the compiler itself.
+add_library(lazy_runtime STATIC
+    src/runtime/RuntimeShim.cpp
+    src/runtime/StringOps.cpp
+    src/runtime/ai/OllamaRuntime.cpp
+    src/runtime/ai/OllamaClient.cpp  # Needed for runtime AI calls
+    src/runtime/ai/AISemanticRuntime.cpp
+    src/runtime/http/HTTPClient.cpp # Needed by OllamaClient
+)
+
+# Installation for runtime
+install(TARGETS lazy_runtime DESTINATION lib)
+
 # Executable
 add_executable(lazy ${LAZY_SOURCES})
 
