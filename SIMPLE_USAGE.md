@@ -1,8 +1,8 @@
-# LazyA - Uso Simple
+# Lazy - Simple Usage
 
-## Comando Simplificado
+## Simplified Command
 
-Ahora puedes compilar y ejecutar con un solo comando:
+You can now compile and run with a single command:
 
 ```bash
 lazy program.lazy -e
@@ -10,69 +10,47 @@ lazy program.lazy -e
 
 ---
 
-## Opciones Disponibles
+## Available Options
 
-### Compilar solamente
+### Compile only
 ```bash
 lazy program.lazy
 ```
-Crea `a.out`
+Creates `a.out`
 
-### Compilar con nombre personalizado
+### Compile with custom name
 ```bash
-lazy program.lazy -o mi_programa
+lazy program.lazy -o my_program
 ```
-Crea `mi_programa`
+Creates `my_program`
 
-### Compilar y ejecutar
+### Compile and run
 ```bash
 lazy program.lazy -r
 ```
-Compila a `a.out` y ejecuta inmediatamente
+Compiles to `a.out` and runs immediately.
 
-### Simple Usage Guide
-
-Lazy is designed to be simple.
-
-## Run directly
-```bash
-lazy run my_script.lazy
-```
-
-## Compile
-```bash
-lazy build my_script.lazy
-./a.out
-```
-
-## New Project
-```bash
-lazy new my_project
-cd my_project
-lazy run main.lazy
-```
-
-### Compilar, ejecutar y mostrar exit code
+### Compile, run, and show exit code
 ```bash
 lazy program.lazy -e
 ```
-Compila, ejecuta y muestra el exit code
+Compiles, runs, and displays the exit code.
 
-### Combinar opciones
+### Combine options
 ```bash
 lazy program.lazy -o test -e
 ```
-Compila a `test`, ejecuta y muestra el exit code
+Compiles to `test`, runs it, and displays the exit code.
 
 ---
 
-## Ejemplos
+## Examples
 
 ```bash
-# Test básico
+# Basic test
 lazy examples/test_complete_var.lazy -e
 
-# Aritmética
+# Arithmetic
 lazy examples/test1_arithmetic.lazy -o calc -e
 
 # Bitwise
@@ -84,18 +62,18 @@ lazy examples/test3_if.lazy -e
 
 ---
 
-## Instalación Global (Opcional)
+## Global Installation (Optional)
 
-Para usar `lazy` desde cualquier directorio, asegúrate de haber corrido `source ~/.zshrc` (o tu config shell).
+To use `lazy` from any directory, make sure you have sourced your shell config (e.g., `source ~/.zshrc`).
 
-Luego desde cualquier lugar:
+Then, from anywhere:
 ```bash
-lazy mi_programa.lazy -e
+lazy my_program.lazy -e
 ```
 
 ---
 
-## Ayuda
+## Help
 
 ```bash
 lazy --help
@@ -103,22 +81,22 @@ lazy --help
 
 ---
 
-## Resumen
+## Summary
 
-| Comando | Descripción |
+| Command | Description |
 |---------|-------------|
-| `lazy file.lazy` | Solo compilar |
-| `lazy file.lazy -r` | Compilar y ejecutar |
-| `lazy file.lazy -e` | Compilar, ejecutar, mostrar exit code |
-| `lazy file.lazy -o name` | Especificar nombre de salida |
-| `lazy --help` | Mostrar ayuda |
+| `lazy file.lazy` | Compile only |
+| `lazy file.lazy -r` | Compile and run |
+| `lazy file.lazy -e` | Compile, run, show exit code |
+| `lazy file.lazy -o name` | Specify output name |
+| `lazy --help` | Show help |
 
 ---
 
-## Ejemplo Completo
+## Complete Example
 
 ```bash
-# Crear un programa
+# Create a program
 cat > test.lazy << 'EOF'
 func main() -> int {
     let x: int = 100;
@@ -127,11 +105,11 @@ func main() -> int {
 }
 EOF
 
-# Compilar y ejecutar
+# Compile and run
 lazy test.lazy -e
 ```
 
-Salida:
+Output:
 ```
 [SUCCESS] Object file generated: a.out.o
 [SUCCESS] Executable created: a.out
@@ -142,125 +120,4 @@ Running a.out...
 Exit code: 142
 ```
 
-¡Así de fácil!
-
----
-
-## Opciones Disponibles
-
-### Compilar solamente
-```bash
-./lazy program.lazy
-```
-Crea `a.out`
-
-### Compilar con nombre personalizado
-```bash
-./lazy program.lazy -o mi_programa
-```
-Crea `mi_programa`
-
-### Compilar y ejecutar
-```bash
-./lazy program.lazy -r
-```
-Compila a `a.out` y ejecuta inmediatamente
-
-### Compilar, ejecutar y mostrar exit code
-```bash
-./lazy program.lazy -e
-```
-Compila, ejecuta y muestra el exit code
-
-### Combinar opciones
-```bash
-./lazy program.lazy -o test -e
-```
-Compila a `test`, ejecuta y muestra el exit code
-
----
-
-## Ejemplos
-
-```bash
-# Test básico
-./lazy examples/test_complete_var.lazy -e
-
-# Aritmética
-./lazy examples/test1_arithmetic.lazy -o calc -e
-
-# Bitwise
-./lazy examples/test2_bitwise.lazy -r
-
-# If/else
-./lazy examples/test3_if.lazy -e
-```
-
----
-
-## Instalación Global (Opcional)
-
-Para usar `lazy` desde cualquier directorio:
-
-```bash
-cd /home/daleth/Escritorio/lazyA
-sudo ln -s $(pwd)/lazy /usr/local/bin/lazy
-```
-
-Luego desde cualquier lugar:
-```bash
-lazy mi_programa.lazy -e
-```
-
----
-
-## Ayuda
-
-```bash
-./lazy --help
-```
-
----
-
-## Resumen
-
-| Comando | Descripción |
-|---------|-------------|
-| `./lazy file.lazy` | Solo compilar |
-| `./lazy file.lazy -r` | Compilar y ejecutar |
-| `./lazy file.lazy -e` | Compilar, ejecutar, mostrar exit code |
-| `./lazy file.lazy -o name` | Especificar nombre de salida |
-| `./lazy --help` | Mostrar ayuda |
-
----
-
-## Ejemplo Completo
-
-```bash
-cd /home/daleth/Escritorio/lazyA
-
-# Crear un programa
-cat > test.lazy << 'EOF'
-func main() -> int {
-    let x: int = 100;
-    let y: int = 42;
-    return x + y;
-}
-EOF
-
-# Compilar y ejecutar
-./lazy test.lazy -e
-```
-
-Salida:
-```
-Compiling test.lazy...
-Successfully compiled to: a.out
-
-Running a.out...
----
----
-Exit code: 142
-```
-
-¡Así de fácil!
+Easy as that!

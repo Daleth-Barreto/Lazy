@@ -1,58 +1,58 @@
-# LazyA - Referencia Rápida
+# Lazy - Quick Reference
 
-## Instalación Global (RECOMENDADO)
+## Global Installation (RECOMMENDED)
 
 ```bash
-cd /home/daleth/Escritorio/lazyA
+cd /home/daleth/Escritorio/lazy
 sudo ln -sf $(pwd)/lazy /usr/local/bin/lazy
 ```
 
-Ahora puedes usar `lazy` desde cualquier lugar.
+Now you can use `lazy` from anywhere.
 
 ---
 
-## Uso
+## Usage
 
-### Desde cualquier directorio:
+### From any directory:
 
 ```bash
-# Compilar y mostrar exit code
-lazy mi_programa.lazy -e
+# Compile and show exit code
+lazy my_program.lazy -e
 
-# Compilar con nombre específico
-lazy programa.lazy -o mi_app -e
+# Compile with specific name
+lazy program.lazy -o my_app -e
 
-# Solo compilar
-lazy programa.lazy -o app
+# Compile only
+lazy program.lazy -o app
 
-# Compilar y ejecutar
-lazy programa.lazy -r
+# Compile and run
+lazy program.lazy -r
 ```
 
-### Ejemplos reales:
+### Real examples:
 
 ```bash
-# Desde el directorio examples
-cd /home/daleth/Escritorio/lazyA/examples
+# From examples directory
+cd /home/daleth/Escritorio/lazy/examples
 lazy test_complete_var.lazy -e          # Exit: 42
 lazy test1_arithmetic.lazy -e           # Exit: 42
 lazy test2_bitwise.lazy -e              # Exit: 4
 lazy test3_if.lazy -e                   # Exit: 1
 
-# Desde tu home
+# From your home
 cd ~
-lazy Escritorio/lazyA/examples/test_complete_var.lazy -e
+lazy Escritorio/lazy/examples/test_complete_var.lazy -e
 
-# Desde cualquier lugar con ruta completa
-lazy /home/daleth/Escritorio/lazyA/examples/test1_arithmetic.lazy -e
+# From anywhere with full path
+lazy /home/daleth/Escritorio/lazy/examples/test1_arithmetic.lazy -e
 ```
 
 ---
 
-## Crear un Programa
+## Create a Program
 
 ```bash
-# Crear archivo
+# Create file
 cat > test.lazy << 'EOF'
 func main() -> int {
     let x: int = 10;
@@ -61,11 +61,11 @@ func main() -> int {
 }
 EOF
 
-# Compilar y ejecutar
+# Compile and execute
 lazy test.lazy -e
 ```
 
-**Salida:**
+**Output:**
 ```
 Compiling test.lazy...
 Successfully compiled to: a.out
@@ -124,56 +124,55 @@ func magic() -> int { "return 42" }
 ### AI Models
 - `codellama:7b` (Default)
 - `qwen2:0.5b`
-```
 
-### Operadores Bitwise
+### Bitwise Operators
 ```lazy
-let resultado: int = 12 & 7;   // AND: 4
-let resultado2: int = 8 | 3;   // OR: 11
-let resultado3: int = 15 ^ 9;  // XOR: 6
-let resultado4: int = 3 << 2;  // Left shift: 12
-let resultado5: int = 16 >> 2; // Right shift: 4
+let result: int = 12 & 7;    // AND: 4
+let result2: int = 8 | 3;    // OR: 11
+let result3: int = 15 ^ 9;   // XOR: 6
+let result4: int = 3 << 2;   // Left shift: 12
+let result5: int = 16 >> 2;  // Right shift: 4
 ```
 
-### Operadores Aritméticos
+### Arithmetic Operators
 ```lazy
 + - * / %
 ```
 
-### Comparaciones
+### Comparisons
 ```lazy
 == != < > <= >=
 ```
 
 ---
 
-## Solución de Problemas
+## Troubleshooting
 
-### Si `lazy` no se encuentra:
+### If `lazy` is not found:
 ```bash
-# Reinstalar el link
-cd /home/daleth/Escritorio/lazyA
+# Reinstall the link
+cd /home/daleth/Escritorio/lazy
 sudo ln -sf $(pwd)/lazy /usr/local/bin/lazy
 ```
 
-### Si el compilador falla:
+### If compiler fails:
 ```bash
-# Recompilar LazyA
-cd /home/daleth/Escritorio/lazyA
-./scripts/build.sh
+# Recompile Lazy
+cd /home/daleth/Escritorio/lazy
+./install.sh 1
 ```
 
-### Ver la ayuda:
+### View help:
 ```bash
 lazy --help
 ```
 
 ---
 
-## Ejemplo Completo
+## Complete Example
 
 ```bash
-# 1. Crear programa
+# 1. Create program
 cat > factorial.lazy << 'EOF'
 func factorial(n: int) -> int {
     if (n < 2) {
@@ -188,10 +187,10 @@ func main() -> int {
 }
 EOF
 
-# 2. Compilar y ejecutar
+# 2. Compile and run
 lazy factorial.lazy -o factorial -e
 
-# 3. Ver resultado
+# 3. View result
 # Exit code: 5
 ```
 
@@ -199,13 +198,13 @@ lazy factorial.lazy -o factorial -e
 
 ## Tips
 
-- El exit code es el valor que retorna `main()`
-- Los programas NO imprimen a la terminal (solo exit code)
-- Usa `-e` para ver el exit code automáticamente
-- Usa rutas absolutas si estás en otro directorio
-- El compilador genera ejecutables de ~17KB
-- La compilación toma <1 segundo
+- Exit code is the return value of `main()`
+- Programs do NOT print to terminal by default (only exit code via wrapper) unless using `print/println`
+- Use `-e` to see exit code automatically
+- Use absolute paths if you are in another directory
+- The compiler generates ~17KB executables
+- Compilation takes <1 second
 
 ---
 
-¡LazyA está listo para usar! 
+Lazy is ready to use!

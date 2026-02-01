@@ -1,20 +1,20 @@
-# Implementación del Sistema de Namespaces - Resumen Técnico
+# Namespace System Implementation - Technical Summary
 
-## Estado Actual
--  Lexer reconoce `NAMESPACE_ID` para `module.function`
--  Parser maneja llamadas simples tipo `llm.complete()`
-- ❌ NO soporta namespaces anidados (`ai.ollama.chat`)
-- ❌ NO hay resolución de nombres completa
+## Current Status
+- Lexer recognizes `NAMESPACE_ID` for `module.function`
+- Parser handles simple calls like `llm.complete()`
+- ❌ NO support for nested namespaces (`ai.ollama.chat`)
+- ❌ NO full name resolution
 
-## Plan de Implementación
+## Implementation Plan
 
-### 1. Actualizar Lexer (lexer.l)
-Cambiar de `NAMESPACE_ID` simple a reconocimiento de cadenas completas:
-- Actual: `llm.chat` → Token único
-- Nuevo: `ai.ollama.chat` → Analizar en parser
+### 1. Update Lexer (lexer.l)
+Switch from simple `NAMESPACE_ID` to full string recognition:
+- Current: `llm.chat` → Single token
+- New: `ai.ollama.chat` → Parse in parser
 
-### 2. Actualizar Parser (parser.y)
-Permitir member access chains para function calls:
+### 2. Update Parser (parser.y)
+Allow member access chains for function calls:
 ```
 ai.ollama.chat()
 └─ ai 
@@ -23,22 +23,22 @@ ai.ollama.chat()
 ```
 
 ### 3. Code Generation
-Resolver namespace paths a nombres de funciones runtime:
-- `ai.ollama.chat()` → `ai_ollama_chat` (función C)
+Resolve namespace paths to runtime function names:
+- `ai.ollama.chat()` → `ai_ollama_chat` (C function)
 
 ### 4. Runtime Functions
-Crear funciones con naming convention:
+Create functions with naming convention:
 ```cpp
 extern "C" char* ai_ollama_chat(char* message, char* model);
 extern "C" char* ai_gemini_chat(char* message, char* model);
 ```
 
-## Archivos a Modificar
-1. `src/lexer/lexer.l` - Pattern para namespaces
-2. `src/parser/parser.y` - Grammar para nested member access
-3. `src/codegen/llvm_codegen.cpp` - Resolución de namespaces
-4. `src/runtime/ai/` - Implementaciones reales
+## Files to Modify
+1. `src/lexer/lexer.l` - Namespace pattern
+2. `src/parser/parser.y` - Nested member access grammar
+3. `src/codegen/llvm_codegen.cpp` - Namespace resolution
+4. `src/runtime/ai/` - Actual implementations
 
-## Estrategia
-Usar member access existente (`primary_expr DOT IDENTIFIER`) para construir namespaces,
-luego resolver en codegen.
+## Strategy
+Use existing member access (`primary_expr DOT IDENTIFIER`) to build namespaces,
+then resolve in codegen.
