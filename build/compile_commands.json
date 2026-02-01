@@ -1,110 +1,110 @@
 [
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/main.cpp.o -c /home/daleth/Escritorio/lazy/src/main.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/main.cpp.o -c /home/daleth/Escritorio/lazy/src/main.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/main.cpp",
-  "output": "CMakeFiles/lazya.dir/src/main.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/ast/ast.cpp.o -c /home/daleth/Escritorio/lazy/src/ast/ast.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/ast/ast.cpp.o -c /home/daleth/Escritorio/lazy/src/ast/ast.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/ast/ast.cpp",
-  "output": "CMakeFiles/lazya.dir/src/ast/ast.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/ast/ast.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/types/type_system.cpp.o -c /home/daleth/Escritorio/lazy/src/types/type_system.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/types/type_system.cpp.o -c /home/daleth/Escritorio/lazy/src/types/type_system.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/types/type_system.cpp",
-  "output": "CMakeFiles/lazya.dir/src/types/type_system.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/types/type_system.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/codegen/llvm_codegen.cpp.o -c /home/daleth/Escritorio/lazy/src/codegen/llvm_codegen.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/codegen/llvm_codegen.cpp.o -c /home/daleth/Escritorio/lazy/src/codegen/llvm_codegen.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/codegen/llvm_codegen.cpp",
-  "output": "CMakeFiles/lazya.dir/src/codegen/llvm_codegen.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/codegen/llvm_codegen.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/codegen/AIFunctionGenerator.cpp.o -c /home/daleth/Escritorio/lazy/src/codegen/AIFunctionGenerator.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/codegen/AIFunctionGenerator.cpp.o -c /home/daleth/Escritorio/lazy/src/codegen/AIFunctionGenerator.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/codegen/AIFunctionGenerator.cpp",
-  "output": "CMakeFiles/lazya.dir/src/codegen/AIFunctionGenerator.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/codegen/AIFunctionGenerator.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/runtime/cache_manager.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/cache_manager.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/runtime/cache_manager.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/cache_manager.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/runtime/cache_manager.cpp",
-  "output": "CMakeFiles/lazya.dir/src/runtime/cache_manager.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/runtime/cache_manager.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/runtime/RuntimeRegistry.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/RuntimeRegistry.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/runtime/RuntimeRegistry.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/RuntimeRegistry.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/runtime/RuntimeRegistry.cpp",
-  "output": "CMakeFiles/lazya.dir/src/runtime/RuntimeRegistry.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/runtime/RuntimeRegistry.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/StdLib.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/runtime/StdLib.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/StdLib.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/runtime/StdLib.cpp",
-  "output": "CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/runtime/StdLib.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/RuntimeShim.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/runtime/RuntimeShim.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/RuntimeShim.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/runtime/RuntimeShim.cpp",
-  "output": "CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/runtime/RuntimeShim.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/PrintFunction.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/runtime/PrintFunction.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/PrintFunction.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/runtime/PrintFunction.cpp",
-  "output": "CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/runtime/PrintFunction.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/http/HTTPClient.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/runtime/http/HTTPClient.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/http/HTTPClient.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/runtime/http/HTTPClient.cpp",
-  "output": "CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/runtime/http/HTTPClient.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/StringOps.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/runtime/StringOps.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/StringOps.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/runtime/StringOps.cpp",
-  "output": "CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/runtime/StringOps.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/ai/OllamaClient.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/runtime/ai/OllamaClient.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/ai/OllamaClient.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/runtime/ai/OllamaClient.cpp",
-  "output": "CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/runtime/ai/OllamaClient.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/ai/OllamaRuntime.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/runtime/ai/OllamaRuntime.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/ai/OllamaRuntime.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/runtime/ai/OllamaRuntime.cpp",
-  "output": "CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/runtime/ai/OllamaRuntime.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/ai/AISemanticOps.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/runtime/ai/AISemanticOps.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/ai/AISemanticOps.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/runtime/ai/AISemanticOps.cpp",
-  "output": "CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/runtime/ai/AISemanticOps.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/ai/AISemanticRuntime.cpp",
+  "command": "/usr/bin/c++ -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions -o CMakeFiles/lazy.dir/src/runtime/ai/AISemanticRuntime.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/ai/AISemanticRuntime.cpp",
   "file": "/home/daleth/Escritorio/lazy/src/runtime/ai/AISemanticRuntime.cpp",
-  "output": "CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.o"
+  "output": "CMakeFiles/lazy.dir/src/runtime/ai/AISemanticRuntime.cpp.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/cc -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -fPIE -fexceptions -o CMakeFiles/lazya.dir/lex.yy.sane.c.o -c /home/daleth/Escritorio/lazy/build/lex.yy.sane.c",
+  "command": "/usr/bin/cc -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -fPIE -fexceptions -o CMakeFiles/lazy.dir/lex.yy.sane.c.o -c /home/daleth/Escritorio/lazy/build/lex.yy.sane.c",
   "file": "/home/daleth/Escritorio/lazy/build/lex.yy.sane.c",
-  "output": "CMakeFiles/lazya.dir/lex.yy.sane.c.o"
+  "output": "CMakeFiles/lazy.dir/lex.yy.sane.c.o"
 },
 {
   "directory": "/home/daleth/Escritorio/lazy/build",
-  "command": "/usr/bin/cc -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -fPIE -fexceptions -o CMakeFiles/lazya.dir/parser.tab.sane.c.o -c /home/daleth/Escritorio/lazy/build/parser.tab.sane.c",
+  "command": "/usr/bin/cc -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build -O3 -DNDEBUG -fPIE -fexceptions -o CMakeFiles/lazy.dir/parser.tab.sane.c.o -c /home/daleth/Escritorio/lazy/build/parser.tab.sane.c",
   "file": "/home/daleth/Escritorio/lazy/build/parser.tab.sane.c",
-  "output": "CMakeFiles/lazya.dir/parser.tab.sane.c.o"
+  "output": "CMakeFiles/lazy.dir/parser.tab.sane.c.o"
 }
 ]

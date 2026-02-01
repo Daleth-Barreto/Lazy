@@ -3,8 +3,8 @@
  * Wrapper for Ollama client integration
  */
 
-#ifndef LAZYA_OLLAMA_RUNTIME_H
-#define LAZYA_OLLAMA_RUNTIME_H
+#ifndef LAZY_OLLAMA_RUNTIME_H
+#define LAZY_OLLAMA_RUNTIME_H
 
 #include "../IRuntimeFunction.h"
 
@@ -45,4 +45,4 @@ public:
 
 } // namespace lazya
 
-#endif // LAZYA_OLLAMA_RUNTIME_H
+#endif // LAZY_OLLAMA_RUNTIME_H

@@ -3,8 +3,8 @@
  * Provides file operations for reading and writing
  */
 
-#ifndef LAZYA_FILE_IO_H
-#define LAZYA_FILE_IO_H
+#ifndef LAZY_FILE_IO_H
+#define LAZY_FILE_IO_H
 
 #include "IRuntimeFunction.h"
 #include "llvm/IR/Function.h"
@@ -205,4 +205,4 @@ public:
 
 } // namespace lazya
 
-#endif // LAZYA_FILE_IO_H
+#endif // LAZY_FILE_IO_H

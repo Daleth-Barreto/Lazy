@@ -3,8 +3,8 @@
  * Central registry for all runtime functions
  */
 
-#ifndef LAZYA_RUNTIME_REGISTRY_H
-#define LAZYA_RUNTIME_REGISTRY_H
+#ifndef LAZY_RUNTIME_REGISTRY_H
+#define LAZY_RUNTIME_REGISTRY_H
 
 #include "IRuntimeFunction.h"
 #include <map>
@@ -48,4 +48,4 @@ private:
 
 } // namespace lazya
 
-#endif // LAZYA_RUNTIME_REGISTRY_H
+#endif // LAZY_RUNTIME_REGISTRY_H

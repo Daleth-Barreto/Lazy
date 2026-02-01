@@ -2,8 +2,8 @@
  * LazyA Runtime - Simple I/O Functions
  */
 
-#ifndef LAZYA_SIMPLE_IO_H
-#define LAZYA_SIMPLE_IO_H
+#ifndef LAZY_SIMPLE_IO_H
+#define LAZY_SIMPLE_IO_H
 
 #include "IRuntimeFunction.h"
 #include "llvm/IR/Function.h"
@@ -114,4 +114,4 @@ public:
 
 } // namespace lazya
 
-#endif // LAZYA_SIMPLE_IO_H
+#endif // LAZY_SIMPLE_IO_H

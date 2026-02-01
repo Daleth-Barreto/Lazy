@@ -2,8 +2,8 @@
  * LazyA Runtime - Read Function
  */
 
-#ifndef LAZYA_READ_FUNCTION_H
-#define LAZYA_READ_FUNCTION_H
+#ifndef LAZY_READ_FUNCTION_H
+#define LAZY_READ_FUNCTION_H
 
 #include "IRuntimeFunction.h"
 #include "llvm/IR/Function.h"
@@ -43,4 +43,4 @@ public:
 
 } // namespace lazya
 
-#endif // LAZYA_READ_FUNCTION_H
+#endif // LAZY_READ_FUNCTION_H

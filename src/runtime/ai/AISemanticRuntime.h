@@ -3,8 +3,8 @@
  * Exposes AI semantic operations to LLVM
  */
 
-#ifndef LAZYA_AI_SEMANTIC_RUNTIME_H
-#define LAZYA_AI_SEMANTIC_RUNTIME_H
+#ifndef LAZY_AI_SEMANTIC_RUNTIME_H
+#define LAZY_AI_SEMANTIC_RUNTIME_H
 
 #include "../IRuntimeFunction.h"
 
@@ -34,4 +34,4 @@ public:
 
 } // namespace lazya
 
-#endif // LAZYA_AI_SEMANTIC_RUNTIME_H
+#endif // LAZY_AI_SEMANTIC_RUNTIME_H

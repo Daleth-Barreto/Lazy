@@ -1,7 +1,7 @@
 /*
- * LazyA Compiler - Main Entry Point
+ * Lazy Compiler - Main Entry Point
  * 
- * Usage: lazya [options] <source.lazy>
+ * Usage: lazy [options] <source.lazy>
  */
 
 #include <iostream>
@@ -24,12 +24,12 @@ extern ASTNode* root;
 extern void print_ast(ASTNode* node);
 
 void print_usage(const char* program) {
-    std::cout << "LazyA Compiler v0.1.0\n";
+    std::cout << "Lazy Compiler v0.1.0\n";
     std::cout << "\nUsage: lazy [command] [options] <file>\n";
     std::cout << "\nCommands:\n";
     std::cout << "  new <name>           Create a new project\n";
     std::cout << "  examples             List available examples\n";
-    std::cout << "  uninstall            Uninstall LazyA\n";
+    std::cout << "  uninstall            Uninstall Lazy\n";
     std::cout << "\nOptions:\n";
     std::cout << "  -h, --help           Show this help message\n";
     std::cout << "  -v, --verbose        Verbose output\n";
@@ -47,7 +47,7 @@ void print_usage(const char* program) {
 }
 
 void print_version() {
-    std::cout << "LazyA Compiler v0.1.0\n";
+    std::cout << "Lazy Compiler v0.1.0\n";
     std::cout << "Built with:\n";
     std::cout << "  - LLVM (code generation)\n";
     std::cout << "  - TensorFlow Lite (AI engine)\n";

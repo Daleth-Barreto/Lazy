@@ -3,8 +3,8 @@
  * Runtime function for output
  */
 
-#ifndef LAZYA_PRINT_FUNCTION_H
-#define LAZYA_PRINT_FUNCTION_H
+#ifndef LAZY_PRINT_FUNCTION_H
+#define LAZY_PRINT_FUNCTION_H
 
 #include "IRuntimeFunction.h"
 
@@ -45,4 +45,4 @@ public:
 
 } // namespace lazya
 
-#endif // LAZYA_PRINT_FUNCTION_H
+#endif // LAZY_PRINT_FUNCTION_H

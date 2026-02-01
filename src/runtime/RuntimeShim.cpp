@@ -32,11 +32,18 @@ int read_int() {
     return i;
 }
 
-// String ops (minimal implementation if needed by generated code)
-// string_concat is already defined in StringOps.cpp
-
-// AI stubs (to allow linking if AI features are disabled/missing)
-// Ideally these are provided by OllamaClient.cpp, but if that fails linking...
-// For now, let's assume OllamaClient handles its symbols.
+// String ops
+char* string_concat(const char* s1, const char* s2) {
+    if (!s1) s1 = "";
+    if (!s2) s2 = "";
+    size_t len1 = strlen(s1);
+    size_t len2 = strlen(s2);
+    char* result = (char*)malloc(len1 + len2 + 1);
+    if (result) {
+        strcpy(result, s1);
+        strcat(result, s2);
+    }
+    return result;
+}
 
 } // extern "C"

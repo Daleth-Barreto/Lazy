@@ -154,7 +154,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=LazyA
+CMAKE_PROJECT_NAME:STATIC=Lazy
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=0.1.0
@@ -289,6 +289,15 @@ LazyA_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 LazyA_SOURCE_DIR:STATIC=/home/daleth/Escritorio/lazy
+
+//Value Computed by CMake
+Lazy_BINARY_DIR:STATIC=/home/daleth/Escritorio/lazy/build
+
+//Value Computed by CMake
+Lazy_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Lazy_SOURCE_DIR:STATIC=/home/daleth/Escritorio/lazy
 
 //Path to a file.
 LibEdit_INCLUDE_DIRS:PATH=LibEdit_INCLUDE_DIRS-NOTFOUND

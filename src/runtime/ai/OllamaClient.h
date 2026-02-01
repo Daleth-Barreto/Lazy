@@ -3,8 +3,8 @@
  * Interface with local Ollama server
  */
 
-#ifndef LAZYA_OLLAMA_CLIENT_H
-#define LAZYA_OLLAMA_CLIENT_H
+#ifndef LAZY_OLLAMA_CLIENT_H
+#define LAZY_OLLAMA_CLIENT_H
 
 #include <string>
 #include "../http/HTTPClient.h"
@@ -45,4 +45,4 @@ extern "C" {
     char* ai_ollama_list_models();
 }
 
-#endif // LAZYA_OLLAMA_CLIENT_H
+#endif // LAZY_OLLAMA_CLIENT_H

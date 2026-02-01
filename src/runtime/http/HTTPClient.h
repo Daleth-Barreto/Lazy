@@ -3,8 +3,8 @@
  * Minimal HTTP client for AI API calls
  */
 
-#ifndef LAZYA_HTTP_CLIENT_H
-#define LAZYA_HTTP_CLIENT_H
+#ifndef LAZY_HTTP_CLIENT_H
+#define LAZY_HTTP_CLIENT_H
 
 #include <string>
 #include <map>
@@ -41,4 +41,4 @@ extern "C" {
     char* http_post(const char* url, const char* body, const char* headers_json);
 }
 
-#endif // LAZYA_HTTP_CLIENT_H
+#endif // LAZY_HTTP_CLIENT_H

@@ -3,8 +3,8 @@
  * Base interface for all runtime library functions
  */
 
-#ifndef LAZYA_IRUNTIME_FUNCTION_H
-#define LAZYA_IRUNTIME_FUNCTION_H
+#ifndef LAZY_IRUNTIME_FUNCTION_H
+#define LAZY_IRUNTIME_FUNCTION_H
 
 #include <string>
 #include <memory>
@@ -47,4 +47,4 @@ public:
 
 } // namespace lazya
 
-#endif // LAZYA_IRUNTIME_FUNCTION_H
+#endif // LAZY_IRUNTIME_FUNCTION_H

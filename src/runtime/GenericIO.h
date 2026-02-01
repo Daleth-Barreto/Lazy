@@ -2,8 +2,8 @@
  * LazyA Runtime - Generic I/O Functions
  */
 
-#ifndef LAZYA_GENERIC_IO_H
-#define LAZYA_GENERIC_IO_H
+#ifndef LAZY_GENERIC_IO_H
+#define LAZY_GENERIC_IO_H
 
 #include "IRuntimeFunction.h"
 #include "llvm/IR/Function.h"
@@ -93,4 +93,4 @@ public:
 
 } // namespace lazya
 
-#endif // LAZYA_GENERIC_IO_H
+#endif // LAZY_GENERIC_IO_H

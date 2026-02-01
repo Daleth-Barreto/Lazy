@@ -3,11 +3,11 @@
  * Uses Ollama for true semantic understanding
  */
 
-#ifndef LAZYA_AI_SEMANTIC_H
+#ifndef LAZY_AI_SEMANTIC_H
 
-#define LAZYA_AI_SEMANTIC_H
+#define LAZY_AI_SEMANTIC_H
 
-#ifndef LAZYA_RUNTIME_BUILD
+#ifndef LAZY_RUNTIME_BUILD
 #include "../IRuntimeFunction.h"
 #include "llvm/IR/Module.h"
 #include "llvm/IR/Function.h"
@@ -39,4 +39,4 @@ int ai_semantic_equals(const char* str1, const char* str2, float threshold);
 }
 #endif
 
-#endif // LAZYA_AI_SEMANTIC_H
+#endif // LAZY_AI_SEMANTIC_H

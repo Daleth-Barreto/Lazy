@@ -1,5 +1,5 @@
-#ifndef LAZYA_STDLIB_H
-#define LAZYA_STDLIB_H
+#ifndef LAZY_STDLIB_H
+#define LAZY_STDLIB_H
 
 #include "IRuntimeFunction.h"
 #include "llvm/IR/Module.h"
@@ -177,4 +177,4 @@ void register_standard_library();
 
 } // namespace lazya
 
-#endif // LAZYA_STDLIB_H
+#endif // LAZY_STDLIB_H

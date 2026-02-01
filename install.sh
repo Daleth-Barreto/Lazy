@@ -13,15 +13,15 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-LAZYA_HOME="${LAZYA_HOME:-$HOME/.lazya}"
-LAZYA_BIN="$LAZYA_HOME/bin"
+LAZY_HOME="${LAZY_HOME:-$HOME/.lazy}"
+LAZY_BIN="$LAZY_HOME/bin"
 INSTALL_DIR="${INSTALL_DIR:-/usr/local/bin}"
 USE_DOCKER="${USE_DOCKER:-auto}"
 
 print_header() {
     echo ""
     echo -e "${BLUE}========╗${NC}"
-    echo -e "${BLUE}       LazyA Compiler Installer            ${NC}"
+    echo -e "${BLUE}       Lazy Compiler Installer             ${NC}"
     echo -e "${BLUE}       The AI-Native Language              ${NC}"
     echo -e "${BLUE}========╝${NC}"
     echo ""
@@ -195,8 +195,9 @@ build_compiler() {
     mkdir -p build/runtime
     
     # Specific runtime sources
-    # 1. Core Runtime (C)
+    # 1. Core Runtime (C / C++ Shim)
     gcc -c runtime_lib/lazy_runtime.c -o build/runtime/lazy_runtime.o -O2 -fPIC -DLAZY_RUNTIME_BUILD
+    g++ -c src/runtime/RuntimeShim.cpp -o build/runtime/RuntimeShim.o -I src/runtime -O2 -fPIC -DLAZY_RUNTIME_BUILD
     
     # 2. AI Runtime (C++)
     g++ -c src/runtime/ai/OllamaClient.cpp -o build/runtime/OllamaClient.o -I src/runtime -I src/runtime/ai -O2 -fPIC -DLAZY_RUNTIME_BUILD
@@ -206,6 +207,7 @@ build_compiler() {
     # Create static library
     ar rcs build/liblazy_runtime.a \
         build/runtime/lazy_runtime.o \
+        build/runtime/RuntimeShim.o \
         build/runtime/OllamaClient.o \
         build/runtime/HTTPClient.o \
         build/runtime/AISemanticOps.o
@@ -492,7 +494,12 @@ main() {
     echo "  2) Docker (easier, more portable)"
     echo "  3) Auto (detect best option)"
     echo ""
-    read -p "Choose installation method [1/2/3]: " choice
+    
+    if [ -n "$1" ]; then
+        choice="$1"
+    else
+        read -p "Choose installation method [1/2/3]: " choice
+    fi
     
     case $choice in
         1)
@@ -546,4 +553,3 @@ main() {
 
 # Run installer
 main "$@"
-```

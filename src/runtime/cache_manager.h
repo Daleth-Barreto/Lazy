@@ -2,8 +2,8 @@
  * LazyA Cache Manager - Header (Stub)
  */
 
-#ifndef LAZYA_CACHE_MANAGER_H
-#define LAZYA_CACHE_MANAGER_H
+#ifndef LAZY_CACHE_MANAGER_H
+#define LAZY_CACHE_MANAGER_H
 
 #include <string>
 
@@ -25,4 +25,4 @@ private:
 
 } // namespace lazya
 
-#endif // LAZYA_CACHE_MANAGER_H
+#endif // LAZY_CACHE_MANAGER_H

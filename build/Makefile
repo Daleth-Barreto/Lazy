@@ -214,24 +214,24 @@ RISCVTargetParserTableGen/fast:
 .PHONY : RISCVTargetParserTableGen/fast
 
 #=============================================================================
-# Target rules for targets named lazya
+# Target rules for targets named lazy
 
 # Build rule for target.
-lazya: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lazya
-.PHONY : lazya
+lazy: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lazy
+.PHONY : lazy
 
 # fast build rule for target.
-lazya/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/build
-.PHONY : lazya/fast
+lazy/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/build
+.PHONY : lazy/fast
 
 lex.yy.sane.o: lex.yy.sane.c.o
 .PHONY : lex.yy.sane.o
 
 # target to build an object file
 lex.yy.sane.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/lex.yy.sane.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/lex.yy.sane.c.o
 .PHONY : lex.yy.sane.c.o
 
 lex.yy.sane.i: lex.yy.sane.c.i
@@ -239,7 +239,7 @@ lex.yy.sane.i: lex.yy.sane.c.i
 
 # target to preprocess a source file
 lex.yy.sane.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/lex.yy.sane.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/lex.yy.sane.c.i
 .PHONY : lex.yy.sane.c.i
 
 lex.yy.sane.s: lex.yy.sane.c.s
@@ -247,7 +247,7 @@ lex.yy.sane.s: lex.yy.sane.c.s
 
 # target to generate assembly for a file
 lex.yy.sane.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/lex.yy.sane.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/lex.yy.sane.c.s
 .PHONY : lex.yy.sane.c.s
 
 parser.tab.sane.o: parser.tab.sane.c.o
@@ -255,7 +255,7 @@ parser.tab.sane.o: parser.tab.sane.c.o
 
 # target to build an object file
 parser.tab.sane.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/parser.tab.sane.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/parser.tab.sane.c.o
 .PHONY : parser.tab.sane.c.o
 
 parser.tab.sane.i: parser.tab.sane.c.i
@@ -263,7 +263,7 @@ parser.tab.sane.i: parser.tab.sane.c.i
 
 # target to preprocess a source file
 parser.tab.sane.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/parser.tab.sane.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/parser.tab.sane.c.i
 .PHONY : parser.tab.sane.c.i
 
 parser.tab.sane.s: parser.tab.sane.c.s
@@ -271,7 +271,7 @@ parser.tab.sane.s: parser.tab.sane.c.s
 
 # target to generate assembly for a file
 parser.tab.sane.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/parser.tab.sane.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/parser.tab.sane.c.s
 .PHONY : parser.tab.sane.c.s
 
 src/ast/ast.o: src/ast/ast.cpp.o
@@ -279,7 +279,7 @@ src/ast/ast.o: src/ast/ast.cpp.o
 
 # target to build an object file
 src/ast/ast.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/ast/ast.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/ast/ast.cpp.o
 .PHONY : src/ast/ast.cpp.o
 
 src/ast/ast.i: src/ast/ast.cpp.i
@@ -287,7 +287,7 @@ src/ast/ast.i: src/ast/ast.cpp.i
 
 # target to preprocess a source file
 src/ast/ast.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/ast/ast.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/ast/ast.cpp.i
 .PHONY : src/ast/ast.cpp.i
 
 src/ast/ast.s: src/ast/ast.cpp.s
@@ -295,7 +295,7 @@ src/ast/ast.s: src/ast/ast.cpp.s
 
 # target to generate assembly for a file
 src/ast/ast.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/ast/ast.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/ast/ast.cpp.s
 .PHONY : src/ast/ast.cpp.s
 
 src/codegen/AIFunctionGenerator.o: src/codegen/AIFunctionGenerator.cpp.o
@@ -303,7 +303,7 @@ src/codegen/AIFunctionGenerator.o: src/codegen/AIFunctionGenerator.cpp.o
 
 # target to build an object file
 src/codegen/AIFunctionGenerator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/codegen/AIFunctionGenerator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/codegen/AIFunctionGenerator.cpp.o
 .PHONY : src/codegen/AIFunctionGenerator.cpp.o
 
 src/codegen/AIFunctionGenerator.i: src/codegen/AIFunctionGenerator.cpp.i
@@ -311,7 +311,7 @@ src/codegen/AIFunctionGenerator.i: src/codegen/AIFunctionGenerator.cpp.i
 
 # target to preprocess a source file
 src/codegen/AIFunctionGenerator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/codegen/AIFunctionGenerator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/codegen/AIFunctionGenerator.cpp.i
 .PHONY : src/codegen/AIFunctionGenerator.cpp.i
 
 src/codegen/AIFunctionGenerator.s: src/codegen/AIFunctionGenerator.cpp.s
@@ -319,7 +319,7 @@ src/codegen/AIFunctionGenerator.s: src/codegen/AIFunctionGenerator.cpp.s
 
 # target to generate assembly for a file
 src/codegen/AIFunctionGenerator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/codegen/AIFunctionGenerator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/codegen/AIFunctionGenerator.cpp.s
 .PHONY : src/codegen/AIFunctionGenerator.cpp.s
 
 src/codegen/llvm_codegen.o: src/codegen/llvm_codegen.cpp.o
@@ -327,7 +327,7 @@ src/codegen/llvm_codegen.o: src/codegen/llvm_codegen.cpp.o
 
 # target to build an object file
 src/codegen/llvm_codegen.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/codegen/llvm_codegen.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/codegen/llvm_codegen.cpp.o
 .PHONY : src/codegen/llvm_codegen.cpp.o
 
 src/codegen/llvm_codegen.i: src/codegen/llvm_codegen.cpp.i
@@ -335,7 +335,7 @@ src/codegen/llvm_codegen.i: src/codegen/llvm_codegen.cpp.i
 
 # target to preprocess a source file
 src/codegen/llvm_codegen.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/codegen/llvm_codegen.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/codegen/llvm_codegen.cpp.i
 .PHONY : src/codegen/llvm_codegen.cpp.i
 
 src/codegen/llvm_codegen.s: src/codegen/llvm_codegen.cpp.s
@@ -343,7 +343,7 @@ src/codegen/llvm_codegen.s: src/codegen/llvm_codegen.cpp.s
 
 # target to generate assembly for a file
 src/codegen/llvm_codegen.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/codegen/llvm_codegen.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/codegen/llvm_codegen.cpp.s
 .PHONY : src/codegen/llvm_codegen.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -351,7 +351,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -359,7 +359,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -367,7 +367,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/runtime/PrintFunction.o: src/runtime/PrintFunction.cpp.o
@@ -375,7 +375,7 @@ src/runtime/PrintFunction.o: src/runtime/PrintFunction.cpp.o
 
 # target to build an object file
 src/runtime/PrintFunction.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/PrintFunction.cpp.o
 .PHONY : src/runtime/PrintFunction.cpp.o
 
 src/runtime/PrintFunction.i: src/runtime/PrintFunction.cpp.i
@@ -383,7 +383,7 @@ src/runtime/PrintFunction.i: src/runtime/PrintFunction.cpp.i
 
 # target to preprocess a source file
 src/runtime/PrintFunction.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/PrintFunction.cpp.i
 .PHONY : src/runtime/PrintFunction.cpp.i
 
 src/runtime/PrintFunction.s: src/runtime/PrintFunction.cpp.s
@@ -391,7 +391,7 @@ src/runtime/PrintFunction.s: src/runtime/PrintFunction.cpp.s
 
 # target to generate assembly for a file
 src/runtime/PrintFunction.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/PrintFunction.cpp.s
 .PHONY : src/runtime/PrintFunction.cpp.s
 
 src/runtime/RuntimeRegistry.o: src/runtime/RuntimeRegistry.cpp.o
@@ -399,7 +399,7 @@ src/runtime/RuntimeRegistry.o: src/runtime/RuntimeRegistry.cpp.o
 
 # target to build an object file
 src/runtime/RuntimeRegistry.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/RuntimeRegistry.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/RuntimeRegistry.cpp.o
 .PHONY : src/runtime/RuntimeRegistry.cpp.o
 
 src/runtime/RuntimeRegistry.i: src/runtime/RuntimeRegistry.cpp.i
@@ -407,7 +407,7 @@ src/runtime/RuntimeRegistry.i: src/runtime/RuntimeRegistry.cpp.i
 
 # target to preprocess a source file
 src/runtime/RuntimeRegistry.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/RuntimeRegistry.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/RuntimeRegistry.cpp.i
 .PHONY : src/runtime/RuntimeRegistry.cpp.i
 
 src/runtime/RuntimeRegistry.s: src/runtime/RuntimeRegistry.cpp.s
@@ -415,7 +415,7 @@ src/runtime/RuntimeRegistry.s: src/runtime/RuntimeRegistry.cpp.s
 
 # target to generate assembly for a file
 src/runtime/RuntimeRegistry.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/RuntimeRegistry.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/RuntimeRegistry.cpp.s
 .PHONY : src/runtime/RuntimeRegistry.cpp.s
 
 src/runtime/RuntimeShim.o: src/runtime/RuntimeShim.cpp.o
@@ -423,7 +423,7 @@ src/runtime/RuntimeShim.o: src/runtime/RuntimeShim.cpp.o
 
 # target to build an object file
 src/runtime/RuntimeShim.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/RuntimeShim.cpp.o
 .PHONY : src/runtime/RuntimeShim.cpp.o
 
 src/runtime/RuntimeShim.i: src/runtime/RuntimeShim.cpp.i
@@ -431,7 +431,7 @@ src/runtime/RuntimeShim.i: src/runtime/RuntimeShim.cpp.i
 
 # target to preprocess a source file
 src/runtime/RuntimeShim.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/RuntimeShim.cpp.i
 .PHONY : src/runtime/RuntimeShim.cpp.i
 
 src/runtime/RuntimeShim.s: src/runtime/RuntimeShim.cpp.s
@@ -439,7 +439,7 @@ src/runtime/RuntimeShim.s: src/runtime/RuntimeShim.cpp.s
 
 # target to generate assembly for a file
 src/runtime/RuntimeShim.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/RuntimeShim.cpp.s
 .PHONY : src/runtime/RuntimeShim.cpp.s
 
 src/runtime/StdLib.o: src/runtime/StdLib.cpp.o
@@ -447,7 +447,7 @@ src/runtime/StdLib.o: src/runtime/StdLib.cpp.o
 
 # target to build an object file
 src/runtime/StdLib.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/StdLib.cpp.o
 .PHONY : src/runtime/StdLib.cpp.o
 
 src/runtime/StdLib.i: src/runtime/StdLib.cpp.i
@@ -455,7 +455,7 @@ src/runtime/StdLib.i: src/runtime/StdLib.cpp.i
 
 # target to preprocess a source file
 src/runtime/StdLib.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/StdLib.cpp.i
 .PHONY : src/runtime/StdLib.cpp.i
 
 src/runtime/StdLib.s: src/runtime/StdLib.cpp.s
@@ -463,7 +463,7 @@ src/runtime/StdLib.s: src/runtime/StdLib.cpp.s
 
 # target to generate assembly for a file
 src/runtime/StdLib.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/StdLib.cpp.s
 .PHONY : src/runtime/StdLib.cpp.s
 
 src/runtime/StringOps.o: src/runtime/StringOps.cpp.o
@@ -471,7 +471,7 @@ src/runtime/StringOps.o: src/runtime/StringOps.cpp.o
 
 # target to build an object file
 src/runtime/StringOps.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/StringOps.cpp.o
 .PHONY : src/runtime/StringOps.cpp.o
 
 src/runtime/StringOps.i: src/runtime/StringOps.cpp.i
@@ -479,7 +479,7 @@ src/runtime/StringOps.i: src/runtime/StringOps.cpp.i
 
 # target to preprocess a source file
 src/runtime/StringOps.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/StringOps.cpp.i
 .PHONY : src/runtime/StringOps.cpp.i
 
 src/runtime/StringOps.s: src/runtime/StringOps.cpp.s
@@ -487,7 +487,7 @@ src/runtime/StringOps.s: src/runtime/StringOps.cpp.s
 
 # target to generate assembly for a file
 src/runtime/StringOps.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/StringOps.cpp.s
 .PHONY : src/runtime/StringOps.cpp.s
 
 src/runtime/ai/AISemanticOps.o: src/runtime/ai/AISemanticOps.cpp.o
@@ -495,7 +495,7 @@ src/runtime/ai/AISemanticOps.o: src/runtime/ai/AISemanticOps.cpp.o
 
 # target to build an object file
 src/runtime/ai/AISemanticOps.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/ai/AISemanticOps.cpp.o
 .PHONY : src/runtime/ai/AISemanticOps.cpp.o
 
 src/runtime/ai/AISemanticOps.i: src/runtime/ai/AISemanticOps.cpp.i
@@ -503,7 +503,7 @@ src/runtime/ai/AISemanticOps.i: src/runtime/ai/AISemanticOps.cpp.i
 
 # target to preprocess a source file
 src/runtime/ai/AISemanticOps.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/ai/AISemanticOps.cpp.i
 .PHONY : src/runtime/ai/AISemanticOps.cpp.i
 
 src/runtime/ai/AISemanticOps.s: src/runtime/ai/AISemanticOps.cpp.s
@@ -511,7 +511,7 @@ src/runtime/ai/AISemanticOps.s: src/runtime/ai/AISemanticOps.cpp.s
 
 # target to generate assembly for a file
 src/runtime/ai/AISemanticOps.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/ai/AISemanticOps.cpp.s
 .PHONY : src/runtime/ai/AISemanticOps.cpp.s
 
 src/runtime/ai/AISemanticRuntime.o: src/runtime/ai/AISemanticRuntime.cpp.o
@@ -519,7 +519,7 @@ src/runtime/ai/AISemanticRuntime.o: src/runtime/ai/AISemanticRuntime.cpp.o
 
 # target to build an object file
 src/runtime/ai/AISemanticRuntime.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/ai/AISemanticRuntime.cpp.o
 .PHONY : src/runtime/ai/AISemanticRuntime.cpp.o
 
 src/runtime/ai/AISemanticRuntime.i: src/runtime/ai/AISemanticRuntime.cpp.i
@@ -527,7 +527,7 @@ src/runtime/ai/AISemanticRuntime.i: src/runtime/ai/AISemanticRuntime.cpp.i
 
 # target to preprocess a source file
 src/runtime/ai/AISemanticRuntime.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/ai/AISemanticRuntime.cpp.i
 .PHONY : src/runtime/ai/AISemanticRuntime.cpp.i
 
 src/runtime/ai/AISemanticRuntime.s: src/runtime/ai/AISemanticRuntime.cpp.s
@@ -535,7 +535,7 @@ src/runtime/ai/AISemanticRuntime.s: src/runtime/ai/AISemanticRuntime.cpp.s
 
 # target to generate assembly for a file
 src/runtime/ai/AISemanticRuntime.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/ai/AISemanticRuntime.cpp.s
 .PHONY : src/runtime/ai/AISemanticRuntime.cpp.s
 
 src/runtime/ai/OllamaClient.o: src/runtime/ai/OllamaClient.cpp.o
@@ -543,7 +543,7 @@ src/runtime/ai/OllamaClient.o: src/runtime/ai/OllamaClient.cpp.o
 
 # target to build an object file
 src/runtime/ai/OllamaClient.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/ai/OllamaClient.cpp.o
 .PHONY : src/runtime/ai/OllamaClient.cpp.o
 
 src/runtime/ai/OllamaClient.i: src/runtime/ai/OllamaClient.cpp.i
@@ -551,7 +551,7 @@ src/runtime/ai/OllamaClient.i: src/runtime/ai/OllamaClient.cpp.i
 
 # target to preprocess a source file
 src/runtime/ai/OllamaClient.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/ai/OllamaClient.cpp.i
 .PHONY : src/runtime/ai/OllamaClient.cpp.i
 
 src/runtime/ai/OllamaClient.s: src/runtime/ai/OllamaClient.cpp.s
@@ -559,7 +559,7 @@ src/runtime/ai/OllamaClient.s: src/runtime/ai/OllamaClient.cpp.s
 
 # target to generate assembly for a file
 src/runtime/ai/OllamaClient.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/ai/OllamaClient.cpp.s
 .PHONY : src/runtime/ai/OllamaClient.cpp.s
 
 src/runtime/ai/OllamaRuntime.o: src/runtime/ai/OllamaRuntime.cpp.o
@@ -567,7 +567,7 @@ src/runtime/ai/OllamaRuntime.o: src/runtime/ai/OllamaRuntime.cpp.o
 
 # target to build an object file
 src/runtime/ai/OllamaRuntime.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/ai/OllamaRuntime.cpp.o
 .PHONY : src/runtime/ai/OllamaRuntime.cpp.o
 
 src/runtime/ai/OllamaRuntime.i: src/runtime/ai/OllamaRuntime.cpp.i
@@ -575,7 +575,7 @@ src/runtime/ai/OllamaRuntime.i: src/runtime/ai/OllamaRuntime.cpp.i
 
 # target to preprocess a source file
 src/runtime/ai/OllamaRuntime.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/ai/OllamaRuntime.cpp.i
 .PHONY : src/runtime/ai/OllamaRuntime.cpp.i
 
 src/runtime/ai/OllamaRuntime.s: src/runtime/ai/OllamaRuntime.cpp.s
@@ -583,7 +583,7 @@ src/runtime/ai/OllamaRuntime.s: src/runtime/ai/OllamaRuntime.cpp.s
 
 # target to generate assembly for a file
 src/runtime/ai/OllamaRuntime.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/ai/OllamaRuntime.cpp.s
 .PHONY : src/runtime/ai/OllamaRuntime.cpp.s
 
 src/runtime/cache_manager.o: src/runtime/cache_manager.cpp.o
@@ -591,7 +591,7 @@ src/runtime/cache_manager.o: src/runtime/cache_manager.cpp.o
 
 # target to build an object file
 src/runtime/cache_manager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/cache_manager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/cache_manager.cpp.o
 .PHONY : src/runtime/cache_manager.cpp.o
 
 src/runtime/cache_manager.i: src/runtime/cache_manager.cpp.i
@@ -599,7 +599,7 @@ src/runtime/cache_manager.i: src/runtime/cache_manager.cpp.i
 
 # target to preprocess a source file
 src/runtime/cache_manager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/cache_manager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/cache_manager.cpp.i
 .PHONY : src/runtime/cache_manager.cpp.i
 
 src/runtime/cache_manager.s: src/runtime/cache_manager.cpp.s
@@ -607,7 +607,7 @@ src/runtime/cache_manager.s: src/runtime/cache_manager.cpp.s
 
 # target to generate assembly for a file
 src/runtime/cache_manager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/cache_manager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/cache_manager.cpp.s
 .PHONY : src/runtime/cache_manager.cpp.s
 
 src/runtime/http/HTTPClient.o: src/runtime/http/HTTPClient.cpp.o
@@ -615,7 +615,7 @@ src/runtime/http/HTTPClient.o: src/runtime/http/HTTPClient.cpp.o
 
 # target to build an object file
 src/runtime/http/HTTPClient.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/http/HTTPClient.cpp.o
 .PHONY : src/runtime/http/HTTPClient.cpp.o
 
 src/runtime/http/HTTPClient.i: src/runtime/http/HTTPClient.cpp.i
@@ -623,7 +623,7 @@ src/runtime/http/HTTPClient.i: src/runtime/http/HTTPClient.cpp.i
 
 # target to preprocess a source file
 src/runtime/http/HTTPClient.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/http/HTTPClient.cpp.i
 .PHONY : src/runtime/http/HTTPClient.cpp.i
 
 src/runtime/http/HTTPClient.s: src/runtime/http/HTTPClient.cpp.s
@@ -631,7 +631,7 @@ src/runtime/http/HTTPClient.s: src/runtime/http/HTTPClient.cpp.s
 
 # target to generate assembly for a file
 src/runtime/http/HTTPClient.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/runtime/http/HTTPClient.cpp.s
 .PHONY : src/runtime/http/HTTPClient.cpp.s
 
 src/types/type_system.o: src/types/type_system.cpp.o
@@ -639,7 +639,7 @@ src/types/type_system.o: src/types/type_system.cpp.o
 
 # target to build an object file
 src/types/type_system.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/types/type_system.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/types/type_system.cpp.o
 .PHONY : src/types/type_system.cpp.o
 
 src/types/type_system.i: src/types/type_system.cpp.i
@@ -647,7 +647,7 @@ src/types/type_system.i: src/types/type_system.cpp.i
 
 # target to preprocess a source file
 src/types/type_system.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/types/type_system.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/types/type_system.cpp.i
 .PHONY : src/types/type_system.cpp.i
 
 src/types/type_system.s: src/types/type_system.cpp.s
@@ -655,7 +655,7 @@ src/types/type_system.s: src/types/type_system.cpp.s
 
 # target to generate assembly for a file
 src/types/type_system.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/types/type_system.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazy.dir/build.make CMakeFiles/lazy.dir/src/types/type_system.cpp.s
 .PHONY : src/types/type_system.cpp.s
 
 # Help Target
@@ -674,7 +674,7 @@ help:
 	@echo "... acc_gen"
 	@echo "... intrinsics_gen"
 	@echo "... omp_gen"
-	@echo "... lazya"
+	@echo "... lazy"
 	@echo "... lex.yy.sane.o"
 	@echo "... lex.yy.sane.i"
 	@echo "... lex.yy.sane.s"

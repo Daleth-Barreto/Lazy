@@ -1,5 +1,5 @@
-#ifndef LAZYA_STRING_OPS_H
-#define LAZYA_STRING_OPS_H
+#ifndef LAZY_STRING_OPS_H
+#define LAZY_STRING_OPS_H
 
 #include "IRuntimeFunction.h"
 
@@ -15,4 +15,4 @@ public:
 
 } // namespace lazya
 
-#endif // LAZYA_STRING_OPS_H
+#endif // LAZY_STRING_OPS_H

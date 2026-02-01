@@ -3,8 +3,8 @@
  * Simple text similarity without ML models for quick demo
  */
 
-#ifndef LAZYA_SEMANTIC_OPS_H
-#define LAZYA_SEMANTIC_OPS_H
+#ifndef LAZY_SEMANTIC_OPS_H
+#define LAZY_SEMANTIC_OPS_H
 
 #include "IRuntimeFunction.h"
 #include "llvm/IR/Function.h"
@@ -68,4 +68,4 @@ public:
 
 } // namespace lazya
 
-#endif // LAZYA_SEMANTIC_OPS_H
+#endif // LAZY_SEMANTIC_OPS_H

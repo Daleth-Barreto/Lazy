@@ -181,7 +181,7 @@ static int levenshtein_distance(const char *s1, const char *s2) {
 
 } // namespace ai
 
-#ifndef LAZYA_RUNTIME_BUILD
+#ifndef LAZY_RUNTIME_BUILD
 llvm::Function* SemanticEqualsFunction::getOrCreate(llvm::Module* module, llvm::LLVMContext& context) {
     if (auto* f = module->getFunction(getName())) return f;
 

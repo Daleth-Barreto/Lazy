@@ -2,7 +2,7 @@
 /home/daleth/Escritorio/lazy/build/CMakeFiles/omp_gen.dir
 /home/daleth/Escritorio/lazy/build/CMakeFiles/acc_gen.dir
 /home/daleth/Escritorio/lazy/build/CMakeFiles/RISCVTargetParserTableGen.dir
-/home/daleth/Escritorio/lazy/build/CMakeFiles/lazya.dir
+/home/daleth/Escritorio/lazy/build/CMakeFiles/lazy.dir
 /home/daleth/Escritorio/lazy/build/CMakeFiles/edit_cache.dir
 /home/daleth/Escritorio/lazy/build/CMakeFiles/rebuild_cache.dir
 /home/daleth/Escritorio/lazy/build/CMakeFiles/list_install_components.dir

@@ -70,5 +70,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/omp_gen.dir/DependInfo.cmake"
   "CMakeFiles/acc_gen.dir/DependInfo.cmake"
   "CMakeFiles/RISCVTargetParserTableGen.dir/DependInfo.cmake"
-  "CMakeFiles/lazya.dir/DependInfo.cmake"
+  "CMakeFiles/lazy.dir/DependInfo.cmake"
   )
