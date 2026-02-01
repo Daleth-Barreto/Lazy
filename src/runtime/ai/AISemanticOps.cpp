@@ -251,7 +251,7 @@ int ai_semantic_equals(const char* str1, const char* str2, float threshold) {
         "Result:", 
         str1, str2);
         
-    char* response = ai_ollama_chat(prompt, "qwen2:0.5b");
+    char* response = ai_ollama_chat(prompt, "codellama:7b");
     // if (response) printf("DEBUG: Semantic Response: %s\n", response);
     
     if (!response) {
