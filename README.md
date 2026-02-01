@@ -6,7 +6,7 @@ Lazy is a compiled programming language with **native AI capabilities**. Write c
 
 ## 📖 The IBM Hackathon Story
 
-This project was forged in the fires of the **IBM watsonx Orchestrate Hackathon 2024**.
+This project was forged in the fires of the **IBM DevDay AI Demystified 2026**.
 
 What happened:
 - 🔥 48 hours of intense coding trying to integrate IBM Granite 3.0 and Orchestrate
@@ -25,6 +25,15 @@ What happened:
 - Teaching me that enterprise APIs are not for the faint of heart
 
 The IBM integration code lives on in git history for anyone brave enough to revive it.
+
+### Why "Lazy"?
+
+The original name was **LazyA** because:
+- I'm lazy 🦥
+- My first name is **Alan**
+- I wanted a language that does the work for me
+
+Also yes, this documentation was written with AI assistance. Because... *gestures at project name*.
 
 ---
 
