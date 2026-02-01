@@ -282,15 +282,6 @@ LIBXML2_XMLLINT_EXECUTABLE:FILEPATH=/home/daleth/miniconda3/bin/xmllint
 LLVM_DIR:PATH=/usr/lib/llvm-18/cmake
 
 //Value Computed by CMake
-LazyA_BINARY_DIR:STATIC=/home/daleth/Escritorio/lazy/build
-
-//Value Computed by CMake
-LazyA_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-LazyA_SOURCE_DIR:STATIC=/home/daleth/Escritorio/lazy
-
-//Value Computed by CMake
 Lazy_BINARY_DIR:STATIC=/home/daleth/Escritorio/lazy/build
 
 //Value Computed by CMake
