@@ -173,27 +173,21 @@ build_compiler() {
     if [ ${#missing_deps[@]} -ne 0 ]; then
         warning "Missing dependencies: ${missing_deps[*]}"
         
-        if [[ "$DISTRO" == "ubuntu" ]] || [[ "$DISTRO" == "debian" ]]; then
-            info "Installing dependencies..."
-            sudo apt-get update
-            # Try installing LLVM 17 first, fall back to default if needed
-            sudo apt-get install -y build-essential cmake llvm-17 llvm-17-dev \
-                flex bison libcurl4-openssl-dev nlohmann-json3-dev libzstd-dev zlib1g-dev || \
-            sudo apt-get install -y build-essential cmake llvm llvm-dev \
-                flex bison libcurl4-openssl-dev nlohmann-json3-dev libzstd-dev zlib1g-dev
-        elif [[ "$DISTRO" == "macos" ]]; then
-            if has_command brew; then
-                info "Installing dependencies via Homebrew..."
-                brew install cmake llvm@17 flex bison curl nlohmann-json zstd
-            else
-                error "Please install Homebrew first: https://brew.sh"
+        info "Running setup_env.sh to install dependencies..."
+        if [ -f "scripts/setup_env.sh" ]; then
+            ./scripts/setup_env.sh
+        else
+            # Download if missing (install from curl scenario)
+            curl -fsSL https://raw.githubusercontent.com/Daleth-Barreto/LazyA/main/scripts/setup_env.sh | bash
+        fi
+        
+        # Re-check
+        for cmd in cmake make g++ flex bison ar; do
+            if ! has_command $cmd; then
+                error "Dependencies still missing after setup_env.sh: $cmd"
                 exit 1
             fi
-        else
-            error "Please install dependencies manually:"
-            echo "  cmake make g++ flex bison llvm-17 libcurl nlohmann-json zstd zlib"
-            exit 1
-        fi
+        done
     fi
 
     # Compile Runtime Library
