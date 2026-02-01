@@ -1,0 +1,48 @@
+// ex02_inventory.lazy
+// Demonstrates: Maps, Vectors, and Data Management
+
+func main() -> int {
+    println("=== Game Inventory System ===");
+    
+    // Inventory Storage (Map: ItemName -> Quantity)
+    let inventory: any = map_new();
+    
+    // Item List (Vector to keep track of names)
+    let item_names: any = vector_new();
+    
+    println("[+] Adding items...");
+    
+    // Add Sword
+    map_put(inventory, "Sword", 1);
+    vector_push(item_names, 1); // Using 1 as ID for Sword
+    println("Added 1 Sword");
+    
+    // Add 5 Potions
+    map_put(inventory, "Potion", 5);
+    vector_push(item_names, 2); // ID 2 for Potion
+    println("Added 5 Potions");
+    
+    // Check Status
+    println_void();
+    println("--- Status Check ---");
+    
+    let sword_count: int = map_get(inventory, "Sword");
+    if (sword_count > 0) {
+        print("Swords equipped: ");
+        println(sword_count);
+    }
+    
+    let potion_count: int = map_get(inventory, "Potion");
+    print("Potions left: ");
+    println(potion_count);
+    
+    // Use a potion
+    println_void();
+    println("[!] Glug glug... Drinking potion.");
+    map_put(inventory, "Potion", potion_count - 1);
+    
+    print("Potions remaining: ");
+    println(map_get(inventory, "Potion"));
+    
+    return 0;
+}

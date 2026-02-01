@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  # Ollama service for AI functionality
+  ollama:
+    image: ollama/ollama:latest
+    container_name: lazya-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:11434/api/tags" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - lazya-network
+
+  # LazyA compiler service
+  lazya-compiler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: lazya-compiler
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    volumes:
+      - ./:/workspace
+      - ./examples:/examples:ro
+    working_dir: /workspace
+    command: bash
+    networks:
+      - lazya-network
+    stdin_open: true
+    tty: true
+
+  # Development environment (with full source)
+  lazya-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: lazya-dev
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
+    command: bash
+    networks:
+      - lazya-network
+    stdin_open: true
+    tty: true
+
+networks:
+  lazya-network:
+    driver: bridge
+
+volumes:
+  ollama-data:

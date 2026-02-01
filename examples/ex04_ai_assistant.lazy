@@ -1,0 +1,41 @@
+// ex04_ai_assistant.lazy
+// Demonstrates: AI Native Features
+
+// 1. Ask AI to write code for us
+@context
+func power_of_two(exponent: int) -> int {
+    "Calculate 2 raised to the power of 'exponent' using a loop or bit shifting.
+    @verify: power_of_two(0) == 1
+    @verify: power_of_two(3) == 8
+    @verify: power_of_two(10) == 1024"
+}
+
+func main() -> int {
+    println("=== AI Assistant Demo ===");
+    
+    // 2. Semantic Comparison (~=)
+    println("[Semantic Analysis]");
+    let input: string = "start game";
+    let command: string = "begin playing";
+    
+    print("Input: ");
+    println(input);
+    print("Command: ");
+    println(command);
+    
+    if (input ~= command) {
+        println("AI: These mean the same thing!");
+    } else {
+        println("AI: Different meanings.");
+    }
+    
+    println_void();
+    
+    // 3. Executing AI Generated Code
+    println("[AI Generated Calculation]");
+    print("2^10 = ");
+    let result: int = power_of_two(10);
+    println(result); // Expected: 1024
+    
+    return 0;
+}

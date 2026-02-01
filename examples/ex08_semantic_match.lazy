@@ -1,0 +1,68 @@
+// ex08_semantic_match.lazy
+// Demonstrates: Semantic Match Operator (~=)
+// This example shows how to use AI-powered pattern matching
+
+func main() -> int {
+    println("=== Semantic Match Demo ===");
+    println_void();
+    
+    // Example 1: Simple semantic matching
+    let user_input: string = "What is your name?";
+    
+    // Traditional approach (without match):
+    // if (user_input ~= "name") {
+    //     println("You asked about names!");
+    // }
+    
+    // TODO: Semantic match syntax (to be implemented)
+    // match user_input {
+    //     ~= "greeting" => println("Hello to you too!"),
+    //     ~= "name" => println("My name is LazyA"),
+    //     ~= "age" => println("I was created in 2026"),
+    //     ~= "quit" => return 0,
+    //     _ => println("I don't understand that.")
+    // }
+    
+    // For now, using individual semantic equality checks
+    println("Input: " + user_input);
+    
+    if (user_input ~= "name question") {
+        println("✓ Matched: Name question pattern");
+    }
+    
+    println_void();
+    
+    // Example 2: Command routing
+    let command: string = "exit the program";
+    
+    println("Command: " + command);
+    
+    if (command ~= "quit") {
+        println("✓ Matched: Quit command");
+    }
+    
+    if (command ~= "exit") {
+        println("✓ Matched: Exit command");
+    }
+    
+    println_void();
+    
+    // Example 3: Intent classification
+    let intent: string = "I want to buy something";
+    
+    println("Intent: " + intent);
+    
+    if (intent ~= "purchase") {
+        println("✓ Matched: Purchase intent");
+    }
+    
+    if (intent ~= "shopping") {
+        println("✓ Matched: Shopping intent");
+    }
+    
+    println_void();
+    println("Note: Semantic match operator (match ~) is planned for future release!");
+    println("It will provide cleaner syntax than multiple if statements.");
+    
+    return 0;
+}

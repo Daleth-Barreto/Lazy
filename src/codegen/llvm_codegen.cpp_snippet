@@ -1,0 +1,75 @@
+void LLVMCodeGenImpl::generateConstructor(FunctionNode* func, ClassNode* classNode) {
+    // Similar to generateFunction but injects initializers
+    named_values.clear();
+
+    // 1. Build function type
+    std::vector<llvm::Type*> param_types;
+    for (auto* param : func->parameters) {
+        param_types.push_back(getType(param->param_type->type_name));
+    }
+    
+    llvm::FunctionType* func_type = llvm::FunctionType::get(
+        llvm::Type::getVoidTy(*context), param_types, false);
+        
+    llvm::Function* llvm_func = llvm::Function::Create(
+        func_type,
+        llvm::Function::ExternalLinkage,
+        func->name,
+        module.get()
+    );
+    
+    // 2. Entry block
+    llvm::BasicBlock* entry = llvm::BasicBlock::Create(*context, "entry", llvm_func);
+    builder->SetInsertPoint(entry);
+    
+    // 3. Alloc args
+    unsigned idx = 0;
+    for (auto& arg : llvm_func->args()) {
+        std::string arg_name = func->parameters[idx]->name;
+        arg.setName(arg_name);
+        
+        llvm::AllocaInst* alloca = builder->CreateAlloca(arg.getType(), nullptr, arg_name);
+        builder->CreateStore(&arg, alloca);
+        
+        // Add to symbol table
+        named_values[arg_name] = alloca;
+        symbol_types[arg_name] = func->parameters[idx]->param_type->type_name;
+        
+        idx++;
+    }
+    
+    // 4. INJECT FIELD INITIALIZATION
+    // 'this' is parameter 0.
+    llvm::Value* this_val_ptr = named_values["this"]; 
+    llvm::Type* alloca_type = this_val_ptr->getAllocatedType(); // ptr
+    llvm::Value* this_ptr = builder->CreateLoad(alloca_type, this_val_ptr, "thisptr");
+    
+    // Iterate class members for initializers
+    for (auto member : classNode->members) {
+        if (member->type == NodeType::VARIABLE_DECL) {
+             auto* var = static_cast<VariableNode*>(member);
+             if (var->initializer) {
+                 llvm::Value* init_val = generateExpression(var->initializer);
+                 if (init_val) {
+                     if (class_field_indices[classNode->name].count(var->name)) {
+                         unsigned f_idx = class_field_indices[classNode->name][var->name];
+                         llvm::StructType* st = struct_types[classNode->name];
+                         
+                         llvm::Value* field_ptr = builder->CreateStructGEP(st, this_ptr, f_idx, "init_" + var->name);
+                         builder->CreateStore(init_val, field_ptr);
+                     }
+                 }
+             }
+        }
+    }
+    
+    // 5. Generate body
+    generateStatement(func->body);
+    
+    // 6. Ensure return void
+    if (!builder->GetInsertBlock()->getTerminator()) {
+        builder->CreateRetVoid();
+    }
+    
+    llvm::verifyFunction(*llvm_func);
+}

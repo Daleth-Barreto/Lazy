@@ -1,0 +1,179 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "LazyA",
+    "scopeName": "source.lazya",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#decorators"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#types"
+        },
+        {
+            "include": "#operators"
+        },
+        {
+            "include": "#builtins"
+        },
+        {
+            "include": "#functions"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#constants"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.lazya",
+                    "match": "//.*$"
+                },
+                {
+                    "name": "comment.block.lazya",
+                    "begin": "/\\*",
+                    "end": "\\*/"
+                }
+            ]
+        },
+        "strings": {
+            "patterns": [
+                {
+                    "name": "string.quoted.double.lazya",
+                    "begin": "\"",
+                    "end": "\"",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.lazya",
+                            "match": "\\\\."
+                        }
+                    ]
+                }
+            ]
+        },
+        "decorators": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.decorator.lazya",
+                    "match": "@(context|cached|inline|ask|generate|analyze|embed|classify|verify)"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.lazya",
+                    "match": "\\b(if|else|while|for|foreach|in|return|break|continue|try|catch|finally|throw|range|match)\\b"
+                },
+                {
+                    "name": "keyword.declaration.lazya",
+                    "match": "\\b(func|let|auto|var|class|new|this|import|from|export)\\b"
+                },
+                {
+                    "name": "keyword.ai.lazya",
+                    "match": "\\b(llm|embed|threshold|ai|ollama|model|prompt)\\b"
+                }
+            ]
+        },
+        "types": {
+            "patterns": [
+                {
+                    "name": "storage.type.lazya",
+                    "match": "\\b(int|float|string|bool|any|void|auto)\\b"
+                },
+                {
+                    "name": "storage.type.ai.lazya",
+                    "match": "\\b(prompt|airesponse|model)\\b"
+                },
+                {
+                    "name": "storage.type.composite.lazya",
+                    "match": "\\[[a-zA-Z_][a-zA-Z0-9_]*\\]|\\{[a-zA-Z_][a-zA-Z0-9_]*\\s*:\\s*[a-zA-Z_][a-zA-Z0-9_]*\\}"
+                }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.semantic.lazya",
+                    "match": "~=|~\\>"
+                },
+                {
+                    "name": "keyword.operator.comparison.lazya",
+                    "match": "==|!=|\\<=|\\>=|\\<|\\>"
+                },
+                {
+                    "name": "keyword.operator.assignment.lazya",
+                    "match": "\\+=|-=|\\*=|/=|="
+                },
+                {
+                    "name": "keyword.operator.arithmetic.lazya",
+                    "match": "\\+|-|\\*|/|%|\\*\\*"
+                },
+                {
+                    "name": "keyword.operator.bitwise.lazya",
+                    "match": "\\&|\\||\\^|\\<\\<|\\>\\>|~"
+                },
+                {
+                    "name": "keyword.operator.logical.lazya",
+                    "match": "\\&\\&|\\|\\||!"
+                },
+                {
+                    "name": "keyword.operator.arrow.lazya",
+                    "match": "\\=\\>|-\\>|\\.\\.\\."
+                }
+            ]
+        },
+        "builtins": {
+            "patterns": [
+                {
+                    "name": "support.function.builtin.lazya",
+                    "match": "\\b(print|print_str|print_int|println_str|file_open|file_write|file_read|file_close|file_size|cosine_similarity|append|length)\\b"
+                }
+            ]
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.lazya",
+                    "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()"
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.float.lazya",
+                    "match": "\\b[0-9]+\\.[0-9]+\\b"
+                },
+                {
+                    "name": "constant.numeric.integer.lazya",
+                    "match": "\\b[0-9]+\\b"
+                }
+            ]
+        },
+        "constants": {
+            "patterns": [
+                {
+                    "name": "constant.language.lazya",
+                    "match": "\\b(true|false|null)\\b"
+                },
+                {
+                    "name": "constant.language.wildcard.lazya",
+                    "match": "\\b_\\b"
+                }
+            ]
+        }
+    }
+}

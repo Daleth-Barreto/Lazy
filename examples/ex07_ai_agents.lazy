@@ -1,0 +1,42 @@
+// ex07_ai_agents.lazy
+// Demonstrates: Explicit AI Agents (Ollama)
+
+func main() -> int {
+    println("=== AI Agents Demo ===");
+    
+    // 1. List available models
+    // Note: Depends on local Ollama instance running
+    println("[Checking Models]");
+    // let models: string = ai.ollama.list_models();
+    // println(models);
+    
+    // 2. Chat with AI
+    let model_name: string = "qwen2:0.5b"; // Using the small model we know is installed
+    let user_prompt: string = "Explain what a compiler is in one sentence.";
+    
+    println_void();
+    print("User: ");
+    println(user_prompt);
+    
+    println("AI (" + model_name + "): Thinking...");
+    
+    // Explicit call to the chat agent
+    let response: string = ai.ollama.chat(user_prompt, model_name);
+    
+    println("Response:");
+    println(response);
+    
+    // 3. Generate Completion
+    println_void();
+    println("[Code Generation]");
+    let code_prompt: string = "Write a C function to add two numbers.";
+    
+    print("Prompt: ");
+    println(code_prompt);
+    
+    let code: string = ai.ollama.generate(code_prompt, model_name);
+    println("Generated Code:");
+    println(code);
+    
+    return 0;
+}

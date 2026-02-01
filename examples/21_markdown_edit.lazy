@@ -1,0 +1,53 @@
+func main() {
+    println_str("=== Markdown File Creation and Edit Test ===");
+    
+    // Step 1: Create initial markdown file
+    println_str("Creating markdown file...");
+    let file: any = file_open("document.md", "w");
+    
+    file_write(file, "# My LazyA Document\n");
+    file_write(file, "\n");
+    file_write(file, "## Introduction\n");
+    file_write(file, "This is a test document created by LazyA.\n");
+    file_write(file, "\n");
+    
+    file_close(file);
+    println_str("Initial content written!");
+    
+    // Step 2: Read and display current content
+    println_str("Current content:");
+    let reader: any = file_open("document.md", "r");
+    let content: any = file_read(reader);
+    println_str(content);
+    file_close(reader);
+    
+    // Step 3: Edit - append more content
+    println_str("Appending more content...");
+    let editor: any = file_open("document.md", "a");
+    
+    file_write(editor, "## Features\n");
+    file_write(editor, "- File I/O operations\n");
+    file_write(editor, "- Read and write files\n");
+    file_write(editor, "- Append mode support\n");
+    file_write(editor, "\n");
+    file_write(editor, "## Conclusion\n");
+    file_write(editor, "File operations working perfectly!\n");
+    
+    file_close(editor);
+    println_str("Content appended!");
+    
+    // Step 4: Read final content
+    println_str("Final content:");
+    let final_reader: any = file_open("document.md", "r");
+    let final_content: any = file_read(final_reader);
+    println_str(final_content);
+    file_close(final_reader);
+    
+    // Step 5: Show file info
+    let size: int = file_size("document.md");
+    print_str("Final file size: ");
+    print_int(size);
+    println_str(" bytes");
+    
+    println_str("Test complete! Check document.md");
+}

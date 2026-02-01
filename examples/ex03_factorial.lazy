@@ -1,0 +1,21 @@
+// ex03_factorial.lazy
+// Demonstrates: Recursion
+
+func factorial(n: int) -> int {
+    if (n <= 1) { return 1; }
+    return n * factorial(n - 1);
+}
+
+func main() -> int {
+    println("=== Recursive Factorial ===");
+    
+    let num: int = 6;
+    let result: int = factorial(num);
+    
+    print("Factorial of ");
+    print(num);
+    print(" is: ");
+    println(result);
+    
+    return 0;
+}

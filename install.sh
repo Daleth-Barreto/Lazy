@@ -1,0 +1,554 @@
+#!/bin/bash
+# LazyA Compiler - One-Command Installer
+# Usage: curl -sSf https://lazya.dev/install.sh | sh
+# Or: ./install.sh
+
+set -e
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Configuration
+LAZYA_HOME="${LAZYA_HOME:-$HOME/.lazya}"
+LAZYA_BIN="$LAZYA_HOME/bin"
+INSTALL_DIR="${INSTALL_DIR:-/usr/local/bin}"
+USE_DOCKER="${USE_DOCKER:-auto}"
+
+print_header() {
+    echo ""
+    echo -e "${BLUE}========╗${NC}"
+    echo -e "${BLUE}       LazyA Compiler Installer            ${NC}"
+    echo -e "${BLUE}       The AI-Native Language              ${NC}"
+    echo -e "${BLUE}========╝${NC}"
+    echo ""
+}
+
+info() {
+    echo -e "${BLUE}[INFO]${NC} $1"
+}
+
+success() {
+    echo -e "${GREEN}[OK]${NC} $1"
+}
+
+warning() {
+    echo -e "${YELLOW}[!]${NC} $1"
+}
+
+error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
+# Detect OS
+detect_os() {
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        OS="linux"
+        if [ -f /etc/os-release ]; then
+            . /etc/os-release
+            DISTRO=$ID
+        fi
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        OS="macos"
+        DISTRO="macos"
+    else
+        OS="unknown"
+        DISTRO="unknown"
+    fi
+}
+
+# Check if command exists
+has_command() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Install Docker if needed
+install_docker() {
+    info "Checking Docker installation..."
+    
+    if has_command docker; then
+        success "Docker already installed: $(docker --version)"
+        return 0
+    fi
+    
+    warning "Docker not found. Installing Docker..."
+    
+    if [[ "$OS" == "linux" ]]; then
+        # Install Docker on Linux
+        if [[ "$DISTRO" == "ubuntu" ]] || [[ "$DISTRO" == "debian" ]]; then
+            curl -fsSL https://get.docker.com -o get-docker.sh
+            sudo sh get-docker.sh
+            sudo usermod -aG docker $USER
+            rm get-docker.sh
+            success "Docker installed. You may need to log out and back in for group changes."
+        else
+            error "Unsupported Linux distribution. Please install Docker manually:"
+            echo "  https://docs.docker.com/engine/install/"
+            exit 1
+        fi
+    elif [[ "$OS" == "macos" ]]; then
+        if has_command brew; then
+            brew install --cask docker
+            success "Docker installed via Homebrew"
+        else
+            error "Please install Docker Desktop manually:"
+            echo "  https://www.docker.com/products/docker-desktop"
+            exit 1
+        fi
+    fi
+}
+
+# Install Docker Compose
+install_docker_compose() {
+    info "Checking Docker Compose..."
+    
+    if docker compose version >/dev/null 2>&1; then
+        success "Docker Compose already installed"
+        return 0
+    fi
+    
+    warning "Installing Docker Compose plugin..."
+    
+    if [[ "$OS" == "linux" ]]; then
+        DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+        mkdir -p $DOCKER_CONFIG/cli-plugins
+        curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 \
+            -o $DOCKER_CONFIG/cli-plugins/docker-compose
+        chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+        success "Docker Compose installed"
+    fi
+}
+
+# Install Ollama
+install_ollama() {
+    info "Checking Ollama installation..."
+    
+    if has_command ollama; then
+        success "Ollama already installed: $(ollama --version 2>&1 | head -n1)"
+        return 0
+    fi
+    
+    warning "Installing Ollama..."
+    curl -fsSL https://ollama.com/install.sh | sh
+    success "Ollama installed"
+}
+
+# Download AI models
+download_models() {
+    info "Downloading AI models..."
+    
+    # Check if Ollama is running
+    if ! pgrep -x "ollama" > /dev/null; then
+        info "Starting Ollama service..."
+        ollama serve &
+        sleep 3
+    fi
+    
+    # Download models
+    info "Downloading codellama:7b (this may take a while)..."
+    ollama pull codellama:7b
+    success "codellama:7b downloaded"
+    
+    info "Downloading qwen2:0.5b..."
+    ollama pull qwen2:0.5b
+    success "qwen2:0.5b downloaded"
+}
+
+# Build LazyA compiler
+build_compiler() {
+    info "Building LazyA compiler..."
+    
+    # Check for build dependencies
+    local missing_deps=()
+    
+    for cmd in cmake make g++ flex bison ar; do
+        if ! has_command $cmd; then
+            missing_deps+=($cmd)
+        fi
+    done
+    
+    if [ ${#missing_deps[@]} -ne 0 ]; then
+        warning "Missing dependencies: ${missing_deps[*]}"
+        
+        if [[ "$DISTRO" == "ubuntu" ]] || [[ "$DISTRO" == "debian" ]]; then
+            info "Installing dependencies..."
+            sudo apt-get update
+            # Try installing LLVM 17 first, fall back to default if needed
+            sudo apt-get install -y build-essential cmake llvm-17 llvm-17-dev \
+                flex bison libcurl4-openssl-dev nlohmann-json3-dev libzstd-dev zlib1g-dev || \
+            sudo apt-get install -y build-essential cmake llvm llvm-dev \
+                flex bison libcurl4-openssl-dev nlohmann-json3-dev libzstd-dev zlib1g-dev
+        elif [[ "$DISTRO" == "macos" ]]; then
+            if has_command brew; then
+                info "Installing dependencies via Homebrew..."
+                brew install cmake llvm@17 flex bison curl nlohmann-json zstd
+            else
+                error "Please install Homebrew first: https://brew.sh"
+                exit 1
+            fi
+        else
+            error "Please install dependencies manually:"
+            echo "  cmake make g++ flex bison llvm-17 libcurl nlohmann-json zstd zlib"
+            exit 1
+        fi
+    fi
+
+    # Compile Runtime Library
+    info "Compiling Runtime Library..."
+    mkdir -p build/runtime
+    
+    # Specific runtime sources
+    # 1. Core Runtime (C)
+    gcc -c runtime_lib/lazya_runtime.c -o build/runtime/lazya_runtime.o -O2 -fPIC -DLAZYA_RUNTIME_BUILD
+    
+    # 2. AI Runtime (C++)
+    g++ -c src/runtime/ai/OllamaClient.cpp -o build/runtime/OllamaClient.o -I src/runtime -I src/runtime/ai -O2 -fPIC -DLAZYA_RUNTIME_BUILD
+    g++ -c src/runtime/http/HTTPClient.cpp -o build/runtime/HTTPClient.o -I src/runtime -I src/runtime/http -O2 -fPIC -DLAZYA_RUNTIME_BUILD
+    g++ -c src/runtime/ai/AISemanticOps.cpp -o build/runtime/AISemanticOps.o -I src/runtime -I src/runtime/ai -O2 -fPIC -DLAZYA_RUNTIME_BUILD
+    
+    # Create static library
+    ar rcs build/liblazya_runtime.a \
+        build/runtime/lazya_runtime.o \
+        build/runtime/OllamaClient.o \
+        build/runtime/HTTPClient.o \
+        build/runtime/AISemanticOps.o
+        
+    success "Runtime library built: build/liblazya_runtime.a"
+    
+    # Build Compiler
+    mkdir -p build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release
+    make -j$(nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || echo 4)
+    cd ..
+    
+    success "LazyA compiler built successfully"
+}
+
+# Install to system
+install_to_system() {
+    info "Installing LazyA to system..."
+    
+    # Create directories
+    mkdir -p "$LAZYA_HOME/bin"
+    mkdir -p "$LAZYA_HOME/lib"
+    mkdir -p "$LAZYA_HOME/examples"
+    
+    # Install Runtime Library
+    if [ -f "build/liblazya_runtime.a" ]; then
+        cp build/liblazya_runtime.a "$LAZYA_HOME/lib/"
+        success "Installed runtime library to $LAZYA_HOME/lib/liblazya_runtime.a"
+    else
+        error "Runtime library not found! Build failed."
+        exit 1
+    fi
+
+    # Fix for missing libcurl dev package (symlink runtime lib)
+    # This ensures -lcurl works even if only libcurl.so.4 is installed
+    if [ ! -f "$LAZYA_HOME/lib/libcurl.so" ]; then
+        # Try to find libcurl in system library cache
+        if has_command ldconfig; then
+            LIBCURL_PATH=$(ldconfig -p | grep "libcurl.so" | head -n 1 | awk '{print $NF}')
+            if [ -n "$LIBCURL_PATH" ] && [ -f "$LIBCURL_PATH" ]; then
+                ln -sf "$LIBCURL_PATH" "$LAZYA_HOME/lib/libcurl.so"
+                info "Created local libcurl.so symlink pointing to $LIBCURL_PATH"
+            fi
+        fi
+    fi
+    
+    # Copy binary (renaming to lazya-compiler to avoid conflict with wrapper)
+    if [ -f "build/lazya" ]; then
+        cp build/lazya "$LAZYA_BIN/lazya-compiler"
+        chmod +x "$LAZYA_BIN/lazya-compiler"
+        success "Installed compiler binary to $LAZYA_BIN/lazya-compiler"
+    elif [ -f "build/lazy" ]; then
+        cp build/lazy "$LAZYA_BIN/lazya-compiler"
+        chmod +x "$LAZYA_BIN/lazya-compiler"
+        success "Installed compiler binary to $LAZYA_BIN/lazya-compiler"
+    else
+        error "Compiler binary not found. Build may have failed."
+        exit 1
+    fi
+    
+    # Copy examples
+    if [ -d "examples" ]; then
+        cp -r examples/* "$LAZYA_HOME/examples/"
+        success "Installed examples to $LAZYA_HOME/examples"
+    fi
+    
+    # Create wrapper script
+    cat > "$LAZYA_BIN/lazy" << 'EOF'
+#!/bin/bash
+# LazyA wrapper - implements -r and -e flags from USO_SIMPLE.md
+# Points to actual ELF binary to avoid recursion
+
+LAZYA_HOME="${LAZYA_HOME:-$HOME/.lazya}"
+BINARY="$LAZYA_HOME/bin/lazya-compiler"
+
+# Check for special commands first
+if [ "$1" = "uninstall" ]; then
+    echo "Uninstalling LazyA..."
+    rm -rf "$LAZYA_HOME"
+    sudo rm -f /usr/local/bin/lazy 2>/dev/null
+    echo "LazyA uninstalled"
+    echo "You may want to remove LAZYA_HOME from your shell config"
+    exit 0
+fi
+
+if [ "$1" = "examples" ]; then
+    echo "Available examples in $LAZYA_HOME/examples:"
+    ls -1 "$LAZYA_HOME/examples/" | grep ".lazy$"
+    exit 0
+fi
+
+if [ "$1" = "new" ]; then
+    if [ -z "$2" ]; then
+        echo "Usage: lazy new <project_name>"
+        exit 1
+    fi
+    PROJECT_NAME="$2"
+    if [ -d "$PROJECT_NAME" ]; then
+        echo "Error: Directory '$PROJECT_NAME' already exists"
+        exit 1
+    fi
+    mkdir "$PROJECT_NAME"
+    cat > "$PROJECT_NAME/main.lazy" << 'END_TEMPLATE'
+func main() -> int {
+    println("Hello from LazyA!");
+    return 0;
+}
+END_TEMPLATE
+    echo "Created new project: $PROJECT_NAME"
+    echo "Try it: cd $PROJECT_NAME && lazy main.lazy -e"
+    exit 0
+fi
+
+# Parse arguments for -r and -e flags
+RUN_AFTER=false
+SHOW_EXIT=false
+declare -a ARGS
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -r)
+            RUN_AFTER=true
+            shift
+            ;;
+        -e)
+            RUN_AFTER=true
+            SHOW_EXIT=true
+            shift
+            ;;
+        *)
+            ARGS+=("$1")
+
+            shift
+            ;;
+    esac
+done
+
+# Run the compiler with remaining arguments
+if [ ${#ARGS[@]} -gt 0 ]; then
+    "$BINARY" "${ARGS[@]}"
+    COMPILE_EXIT=$?
+else
+    # No args -> Show help
+    "$BINARY" --help
+    exit $?
+fi
+
+# If compilation failed, exit
+if [ $COMPILE_EXIT -ne 0 ]; then
+    exit $COMPILE_EXIT
+fi
+
+# Run if -r or -e was specified
+if [ "$RUN_AFTER" = true ]; then
+    # Determine output file (check if -o was used)
+    OUTPUT="a.out"
+    for ((i=0; i<${#ARGS[@]}; i++)); do
+        if [ "${ARGS[$i]}" = "-o" ] && [ $((i+1)) -lt ${#ARGS[@]} ]; then
+            OUTPUT="${ARGS[$((i+1))]}"
+            break
+        fi
+    done
+    
+    # Run the compiled program
+    if [ -f "$OUTPUT" ]; then
+        if [ "$SHOW_EXIT" = true ]; then
+            echo ""
+            echo "Running $OUTPUT..."
+            echo "---"
+            ./"$OUTPUT"
+            EXIT_CODE=$?
+            echo "---"
+            echo "Exit code: $EXIT_CODE"
+            exit $EXIT_CODE
+        else
+            ./"$OUTPUT"
+            exit $?
+        fi
+    else
+        echo "Error: Output file $OUTPUT not found"
+        exit 1
+    fi
+fi
+EOF
+    chmod +x "$LAZYA_BIN/lazy"
+    success "Created lazy wrapper script"
+}
+
+# Setup shell configuration
+setup_shell() {
+    info "Setting up shell environment..."
+    
+    # Detect which shell is being used
+    local current_shell=$(basename "$SHELL")
+    local shell_rc=""
+    
+    case "$current_shell" in
+        bash)
+            shell_rc="$HOME/.bashrc"
+            ;;
+        zsh)
+            shell_rc="$HOME/.zshrc"
+            ;;
+        fish)
+            shell_rc="$HOME/.config/fish/config.fish"
+            info "Fish shell detected. Manual configuration required."
+            info "Add this to your config.fish:"
+            echo "  set -gx LAZYA_HOME \$HOME/.lazya"
+            echo "  set -gx PATH \$LAZYA_HOME/bin \$PATH"
+            return 0
+            ;;
+        *)
+            shell_rc="$HOME/.profile"
+            warning "Unknown shell: $current_shell. Using .profile"
+            ;;
+    esac
+    
+    # Add to PATH if not already there
+    if ! grep -q "LAZYA_HOME" "$shell_rc" 2>/dev/null; then
+        cat >> "$shell_rc" << EOF
+
+# LazyA Configuration
+export LAZYA_HOME="\$HOME/.lazya"
+export PATH="\$LAZYA_HOME/bin:\$PATH"
+EOF
+        success "Added LazyA to $shell_rc"
+        warning "Please run: source $shell_rc"
+    else
+        success "LazyA already in $shell_rc"
+    fi
+}
+
+# Docker-based installation
+install_with_docker() {
+    info "Installing LazyA with Docker..."
+    
+    install_docker
+    install_docker_compose
+    install_ollama
+    
+    # Clone or use existing source
+    if [ ! -d "build" ]; then
+        info "Building Docker images..."
+        docker compose build
+        success "Docker images built"
+    fi
+    
+    # Create wrapper that uses Docker
+    mkdir -p "$LAZYA_BIN"
+    cat > "$LAZYA_BIN/lazy" << 'EOF'
+#!/bin/bash
+docker compose run --rm lazya-compiler lazy "$@"
+EOF
+    chmod +x "$LAZYA_BIN/lazy"
+    
+    setup_shell
+    success "Docker-based installation complete"
+}
+
+# Native installation
+install_native() {
+    info "Installing LazyA natively..."
+    
+    install_ollama
+    download_models
+    build_compiler
+    install_to_system
+    setup_shell
+    
+    success "Native installation complete"
+}
+
+# Main installation
+main() {
+    print_header
+    
+    detect_os
+    info "Detected OS: $OS ($DISTRO)"
+    
+    echo ""
+    info "Installation options:"
+    echo "  1) Native (recommended, faster)"
+    echo "  2) Docker (easier, more portable)"
+    echo "  3) Auto (detect best option)"
+    echo ""
+    read -p "Choose installation method [1/2/3]: " choice
+    
+    case $choice in
+        1)
+            install_native
+            ;;
+        2)
+            install_with_docker
+            ;;
+        3|"")
+            if has_command cmake && has_command make; then
+                info "Build tools found, using native installation"
+                install_native
+            else
+                info "Build tools not found, using Docker installation"
+                install_with_docker
+            fi
+            ;;
+        *)
+            error "Invalid choice"
+            exit 1
+            ;;
+    esac
+    
+    # Verify installation
+    echo ""
+    info "Verifying installation..."
+    
+    export PATH="$LAZYA_BIN:$PATH"
+    
+    if has_command lazy; then
+        success "LazyA installed successfully!"
+        echo ""
+        echo -e "${GREEN}========================================${NC}"
+        echo -e "${GREEN}  Installation Complete!                ${NC}"
+        echo -e "${GREEN}========================================${NC}"
+        echo ""
+        echo "Quick start:"
+        echo "  1. Reload your shell: source ~/.bashrc  (or ~/.zshrc)"
+        echo "  2. Create a project:  lazy new my_app"
+        echo "  3. Run an example:    lazy examples/ex01_primes.lazy -e"
+        echo ""
+        echo "More info:"
+        echo "  lazy --help         Show help"
+        echo "  lazy examples       List examples"
+        echo ""
+    else
+        warning "Installation completed but 'lazy' not found in PATH"
+        echo "Please add $LAZYA_BIN to your PATH manually"
+    fi
+}
+
+# Run installer
+main "$@"

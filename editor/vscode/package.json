@@ -1,0 +1,38 @@
+{
+    "name": "lazya",
+    "displayName": "LazyA Language",
+    "description": "Syntax highlighting for LazyA programming language",
+    "version": "0.1.0",
+    "publisher": "lazya-team",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "lazya",
+                "aliases": [
+                    "LazyA",
+                    "lazya"
+                ],
+                "extensions": [
+                    ".lazy"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "lazya",
+                "scopeName": "source.lazya",
+                "path": "./syntaxes/lazya.tmLanguage.json"
+            }
+        ]
+    },
+    "devDependencies": {
+        "@vscode/vsce": "^3.7.1"
+    }
+}

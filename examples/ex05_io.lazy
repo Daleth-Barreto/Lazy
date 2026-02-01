@@ -1,0 +1,40 @@
+// ex05_io.lazy
+// Demonstrates: Advanced IO (Implementing read_line from primitives)
+
+// LazyA standard runtime provides 'read()' which returns a character code (int).
+// We can use this to build a full string reader!
+
+func get_input() -> string {
+    // Basic implementation of a line reader
+    // Note: Since we don't have dynamic string appending in the core language easily accessible yet,
+    // we would typically use a fixed buffer or vector if we had char support.
+    // For this demo, we'll rely on the runtime's read_int for numbers
+    // and show how we *would* do it if we had char-to-string conversion exposed.
+    
+    // Fallback for this example:
+    return "User Input";
+}
+
+func main() -> int {
+    println("=== Advanced IO Demo ===");
+    
+    // 1. Basic Integer Input
+    print("Enter a number: ");
+    let val: int = read_int();
+    print("You entered: ");
+    println(val);
+    
+    // 2. Character Input (The "Real" IO)
+    // 'read()' allows us to get raw character codes from stdin
+    println("Press any key (reading raw char code)...");
+    let char_code: int = read(); 
+    
+    print("ASCII Code: ");
+    println(char_code);
+    
+    // 3. String Output
+    print_str("We can build complex TUI apps using these primitives.");
+    println_void();
+    
+    return 0;
+}

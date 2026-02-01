@@ -1,0 +1,121 @@
+#!/bin/bash
+# lazy - Wrapper script for LazyA Compiler
+# Usage: lazy <source.lazy> [options]
+#
+# Options:
+#   -o <file>   Output binary name (default: a.out)
+#   -r          Run after compilation
+#   -e          Run and show exit code
+#   -v          Verbose (show compiler output)
+
+COMPILER="./build/lazya"
+
+# Ensure compiler exists
+if [ ! -f "$COMPILER" ]; then
+    echo "Error: Compiler binary not found at $COMPILER"
+    echo "Please run ./scripts/build.sh first"
+    exit 1
+fi
+
+# Variables
+SOURCE_FILE=""
+OUTPUT_FILE="a.out"
+RUN_AFTER=0
+SHOW_EXIT_CODE=0
+VERBOSE=0
+COMPILER_ARGS=""
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -o)
+            OUTPUT_FILE="$2"
+            shift 2
+            ;;
+        -r)
+            RUN_AFTER=1
+            shift
+            ;;
+        -e)
+            RUN_AFTER=1
+            SHOW_EXIT_CODE=1
+            shift
+            ;;
+        -v|--verbose)
+            VERBOSE=1
+            COMPILER_ARGS="$COMPILER_ARGS -v"
+            shift
+            ;;
+        -h|--help)
+            echo "Usage: lazy <source.lazy> [options]"
+            echo "Options:"
+            echo "  -o <file>   Output binary name"
+            echo "  -r          Run after compilation"
+            echo "  -e          Run and show exit code"
+            echo "  -v          Verbose compiler output"
+            exit 0
+            ;;
+        *.lazy)
+            SOURCE_FILE="$1"
+            shift
+            ;;
+        *)
+            # Pass other unknown args to compiler or treat as error?
+            # For now, assume it's a compiler flag (like --ast)
+            COMPILER_ARGS="$COMPILER_ARGS $1"
+            shift
+            ;;
+    esac
+done
+
+if [ -z "$SOURCE_FILE" ]; then
+    echo "Error: No source file specified."
+    echo "Usage: lazy <source.lazy> [options]"
+    exit 1
+fi
+
+# Determine compiler output redirection
+if [ $VERBOSE -eq 1 ]; then
+    # Show everything
+    "$COMPILER" "$SOURCE_FILE" -o "$OUTPUT_FILE" $COMPILER_ARGS
+    COMPILE_RES=$?
+else
+    # Silent success (stdout to null), show errors (stderr kept)
+    "$COMPILER" "$SOURCE_FILE" -o "$OUTPUT_FILE" $COMPILER_ARGS > /dev/null
+    COMPILE_RES=$?
+fi
+
+# Check compilation result
+if [ $COMPILE_RES -ne 0 ]; then
+    echo "❌ Compilation failed."
+    exit $COMPILE_RES
+fi
+
+# Run if requested
+if [ $RUN_AFTER -eq 1 ]; then
+    # Check if file exists
+    if [ ! -f "$OUTPUT_FILE" ]; then
+        echo "Error: Output file $OUTPUT_FILE not found."
+        exit 1
+    fi
+    
+    # Run
+    ./"$OUTPUT_FILE"
+    EXIT_CODE=$?
+    
+    # Show exit code if requested
+    if [ $SHOW_EXIT_CODE -eq 1 ]; then
+        echo "Exit code: $EXIT_CODE"
+    fi
+    
+    # Cleanup temporary binaries if we didn't specify a custom -o
+    # (Optional logic: keep if custom -o, delete if default a.out?
+    #  For now, let's keep it simple: assume user manages files unless it's a temp run)
+    
+    # If the user JUST wanted to run (lazy file.lazy -r), they might not care about the binary.
+    # But usually, keeping 'a.out' is standard GCC behavior.
+    # However, user said "antes no se poina todo el proceso", implying a scripting feel.
+    # Let's clean up ONLY if the output name was default 'a.out' to keep directory clean,
+    # OR if this is meant to be a transient run.
+    # Actually, standard behavior is keep it. Let's keep it.
+fi
