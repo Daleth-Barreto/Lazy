@@ -1,5 +1,0 @@
-# Hashes of file build rules.
-a1064050b3d1ef92e53850b345d619a9 lex.yy.c
-1f21c3eea853361f20cb91d18a1eaae4 lex.yy.sane.c
-ddaf9fcbdda40e34f272fa074d5bcef9 parser.tab.c
-5eaeb7ce6bbe2efe2fc70d0981c32f31 parser.tab.sane.c
