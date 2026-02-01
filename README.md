@@ -2,6 +2,32 @@
 
 Lazy is a compiled programming language with **native AI capabilities**. Write code that reasons, generates, and adapts using embedded AI operators.
 
+---
+
+## 📖 The IBM Hackathon Story
+
+This project was forged in the fires of the **IBM watsonx Orchestrate Hackathon 2024**.
+
+What happened:
+- 🔥 48 hours of intense coding trying to integrate IBM Granite 3.0 and Orchestrate
+- 🗺️ Deciphering IBM's documentation (which felt like reading an ancient treasure map)
+- 🤯 Multiple authentication errors: PEM errors, 500 Internal Server Errors, endpoints that didn't exist
+- 😅 Finally got Granite working... then realized I submitted the wrong YouTube link
+- 🔄 Reverted all IBM code because I don't have resources to maintain enterprise integrations
+
+**But here's the thing:** The pressure of the hackathon pushed me to complete LazyA v1.0. Without that deadline, this project might still be a half-baked idea.
+
+### Acknowledgments
+
+**Thank you IBM** for:
+- The motivation to finish this compiler
+- Improving my IQ by 20 points while deciphering your documentation
+- Teaching me that enterprise APIs are not for the faint of heart
+
+The IBM integration code lives on in git history for anyone brave enough to revive it.
+
+---
+
 ## Quick Install
 
 **One command to rule them all:**
