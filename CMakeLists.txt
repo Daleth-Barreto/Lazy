@@ -120,8 +120,12 @@ add_library(lazy_runtime STATIC
     src/runtime/ai/OllamaRuntime.cpp
     src/runtime/ai/OllamaClient.cpp  # Needed for runtime AI calls
     src/runtime/ai/AISemanticRuntime.cpp
+    src/runtime/ai/AISemanticOps.cpp  # Contains ai_semantic_equals implementation
     src/runtime/http/HTTPClient.cpp # Needed by OllamaClient
 )
+
+# Define macro to exclude LLVM code from runtime build
+target_compile_definitions(lazy_runtime PRIVATE LAZY_RUNTIME_BUILD)
 
 # Installation for runtime
 install(TARGETS lazy_runtime DESTINATION lib)
