@@ -88,6 +88,10 @@ int parse_arguments(int argc, char** argv, CompilerOptions& opts) {
             opts.cold_start = true;
         } else if (arg == "--no-ai") {
             opts.no_ai = true;
+        } else if (arg == "-r") {
+            // Handled by wrapper, but accept it to avoid errors if passed directly
+        } else if (arg == "-e") {
+            // Handled by wrapper, but accept it to avoid errors if passed directly
         } else if (arg == "-o") {
             if (i + 1 < argc) {
                 opts.output_file = argv[++i];
