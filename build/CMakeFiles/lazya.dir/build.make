@@ -209,10 +209,24 @@ CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daleth/Escritorio/lazy/src/runtime/StdLib.cpp -o CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.s
 
+CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o: CMakeFiles/lazya.dir/flags.make
+CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o: /home/daleth/Escritorio/lazy/src/runtime/RuntimeShim.cpp
+CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o: CMakeFiles/lazya.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o -MF CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o.d -o CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/RuntimeShim.cpp
+
+CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/daleth/Escritorio/lazy/src/runtime/RuntimeShim.cpp > CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.i
+
+CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daleth/Escritorio/lazy/src/runtime/RuntimeShim.cpp -o CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.s
+
 CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o: CMakeFiles/lazya.dir/flags.make
 CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o: /home/daleth/Escritorio/lazy/src/runtime/PrintFunction.cpp
 CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o: CMakeFiles/lazya.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o -MF CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o.d -o CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/PrintFunction.cpp
 
 CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.s: cmake_force
 CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.o: CMakeFiles/lazya.dir/flags.make
 CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.o: /home/daleth/Escritorio/lazy/src/runtime/http/HTTPClient.cpp
 CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.o: CMakeFiles/lazya.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.o -MF CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.o.d -o CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/http/HTTPClient.cpp
 
 CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.s: cmake_force
 CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o: CMakeFiles/lazya.dir/flags.make
 CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o: /home/daleth/Escritorio/lazy/src/runtime/StringOps.cpp
 CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o: CMakeFiles/lazya.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o -MF CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o.d -o CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/StringOps.cpp
 
 CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.s: cmake_force
 CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.o: CMakeFiles/lazya.dir/flags.make
 CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.o: /home/daleth/Escritorio/lazy/src/runtime/ai/OllamaClient.cpp
 CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.o: CMakeFiles/lazya.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.o -MF CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.o.d -o CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/ai/OllamaClient.cpp
 
 CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.i: cmake_force
@@ -268,7 +282,7 @@ CMakeFiles/lazya.dir/src/runtime/ai/OllamaClient.cpp.s: cmake_force
 CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.o: CMakeFiles/lazya.dir/flags.make
 CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.o: /home/daleth/Escritorio/lazy/src/runtime/ai/OllamaRuntime.cpp
 CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.o: CMakeFiles/lazya.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.o -MF CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.o.d -o CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/ai/OllamaRuntime.cpp
 
 CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.i: cmake_force
@@ -282,7 +296,7 @@ CMakeFiles/lazya.dir/src/runtime/ai/OllamaRuntime.cpp.s: cmake_force
 CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.o: CMakeFiles/lazya.dir/flags.make
 CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.o: /home/daleth/Escritorio/lazy/src/runtime/ai/AISemanticOps.cpp
 CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.o: CMakeFiles/lazya.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.o -MF CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.o.d -o CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/ai/AISemanticOps.cpp
 
 CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.i: cmake_force
@@ -296,7 +310,7 @@ CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.s: cmake_force
 CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.o: CMakeFiles/lazya.dir/flags.make
 CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.o: /home/daleth/Escritorio/lazy/src/runtime/ai/AISemanticRuntime.cpp
 CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.o: CMakeFiles/lazya.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.o -MF CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.o.d -o CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.o -c /home/daleth/Escritorio/lazy/src/runtime/ai/AISemanticRuntime.cpp
 
 CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.i: cmake_force
@@ -310,7 +324,7 @@ CMakeFiles/lazya.dir/src/runtime/ai/AISemanticRuntime.cpp.s: cmake_force
 CMakeFiles/lazya.dir/lex.yy.sane.c.o: CMakeFiles/lazya.dir/flags.make
 CMakeFiles/lazya.dir/lex.yy.sane.c.o: lex.yy.sane.c
 CMakeFiles/lazya.dir/lex.yy.sane.c.o: CMakeFiles/lazya.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/lazya.dir/lex.yy.sane.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/lazya.dir/lex.yy.sane.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/lazya.dir/lex.yy.sane.c.o -MF CMakeFiles/lazya.dir/lex.yy.sane.c.o.d -o CMakeFiles/lazya.dir/lex.yy.sane.c.o -c /home/daleth/Escritorio/lazy/build/lex.yy.sane.c
 
 CMakeFiles/lazya.dir/lex.yy.sane.c.i: cmake_force
@@ -324,7 +338,7 @@ CMakeFiles/lazya.dir/lex.yy.sane.c.s: cmake_force
 CMakeFiles/lazya.dir/parser.tab.sane.c.o: CMakeFiles/lazya.dir/flags.make
 CMakeFiles/lazya.dir/parser.tab.sane.c.o: parser.tab.sane.c
 CMakeFiles/lazya.dir/parser.tab.sane.c.o: CMakeFiles/lazya.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/lazya.dir/parser.tab.sane.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/lazya.dir/parser.tab.sane.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/lazya.dir/parser.tab.sane.c.o -MF CMakeFiles/lazya.dir/parser.tab.sane.c.o.d -o CMakeFiles/lazya.dir/parser.tab.sane.c.o -c /home/daleth/Escritorio/lazy/build/parser.tab.sane.c
 
 CMakeFiles/lazya.dir/parser.tab.sane.c.i: cmake_force
@@ -345,6 +359,7 @@ lazya_OBJECTS = \
 "CMakeFiles/lazya.dir/src/runtime/cache_manager.cpp.o" \
 "CMakeFiles/lazya.dir/src/runtime/RuntimeRegistry.cpp.o" \
 "CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.o" \
+"CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o" \
 "CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o" \
 "CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.o" \
 "CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o" \
@@ -366,6 +381,7 @@ lazya: CMakeFiles/lazya.dir/src/codegen/AIFunctionGenerator.cpp.o
 lazya: CMakeFiles/lazya.dir/src/runtime/cache_manager.cpp.o
 lazya: CMakeFiles/lazya.dir/src/runtime/RuntimeRegistry.cpp.o
 lazya: CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.o
+lazya: CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o
 lazya: CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o
 lazya: CMakeFiles/lazya.dir/src/runtime/http/HTTPClient.cpp.o
 lazya: CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o
@@ -495,7 +511,7 @@ lazya: /usr/lib/x86_64-linux-gnu/libz.so
 lazya: /usr/lib/x86_64-linux-gnu/libzstd.so
 lazya: /usr/lib/x86_64-linux-gnu/libtinfo.so
 lazya: CMakeFiles/lazya.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable lazya"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/daleth/Escritorio/lazy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking CXX executable lazya"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lazya.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

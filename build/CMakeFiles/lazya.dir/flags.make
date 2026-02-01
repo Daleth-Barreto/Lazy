@@ -7,11 +7,11 @@ C_DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__ST
 
 C_INCLUDES = -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build
 
-C_FLAGS = -O3 -DNDEBUG -fPIE
+C_FLAGS = -O3 -DNDEBUG -fPIE -fexceptions
 
 CXX_DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
 
 CXX_INCLUDES = -I/usr/lib/llvm-18/include -I/home/daleth/Escritorio/lazy/src -I/home/daleth/Escritorio/lazy/build
 
-CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -fPIE
+CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -fPIE -fexceptions
 

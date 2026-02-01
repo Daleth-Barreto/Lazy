@@ -9,18 +9,21 @@ FROM ubuntu:24.04 AS builder
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install build dependencies
+# Install build dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
     clang \
-    llvm-15 \
-    llvm-15-dev \
+    llvm-18 \
+    llvm-18-dev \
     flex \
     bison \
     git \
     curl \
     libcurl4-openssl-dev \
     nlohmann-json3-dev \
+    libzstd-dev \
+    zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Create working directory
@@ -46,15 +49,20 @@ RUN apt-get update && apt-get install -y \
     curl \
     ca-certificates \
     libcurl4 \
+    libllvm18 \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
 # Copy compiled binary from builder
-COPY --from=builder /build/build/lazy /usr/local/bin/lazy
+COPY --from=builder /build/build/lazya /usr/local/bin/lazya-compiler
 COPY --from=builder /build/examples /examples
-COPY --from=builder /build/verify_all.sh /verify_all.sh
+
+# Create wrapper script
+RUN echo '#!/bin/bash' > /usr/local/bin/lazy && \
+    echo '/usr/local/bin/lazya-compiler "$@"' >> /usr/local/bin/lazy && \
+    chmod +x /usr/local/bin/lazy
 
 # Create workspace directory
 WORKDIR /workspace

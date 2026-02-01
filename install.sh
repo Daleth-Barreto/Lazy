@@ -240,7 +240,7 @@ install_to_system() {
     # Install Runtime Library
     if [ -f "build/liblazya_runtime.a" ]; then
         cp build/liblazya_runtime.a "$LAZYA_HOME/lib/"
-        success "Installed runtime library to $LAZYA_HOME/lib/liblazya_runtime.a"
+        success "Installed runtime library to ~/.lazya/lib/liblazya_runtime.a"
     else
         error "Runtime library not found! Build failed."
         exit 1
@@ -263,11 +263,11 @@ install_to_system() {
     if [ -f "build/lazya" ]; then
         cp build/lazya "$LAZYA_BIN/lazya-compiler"
         chmod +x "$LAZYA_BIN/lazya-compiler"
-        success "Installed compiler binary to $LAZYA_BIN/lazya-compiler"
+        success "Installed compiler binary to ~/.lazya/bin/lazya-compiler"
     elif [ -f "build/lazy" ]; then
         cp build/lazy "$LAZYA_BIN/lazya-compiler"
         chmod +x "$LAZYA_BIN/lazya-compiler"
-        success "Installed compiler binary to $LAZYA_BIN/lazya-compiler"
+        success "Installed compiler binary to ~/.lazya/bin/lazya-compiler"
     else
         error "Compiler binary not found. Build may have failed."
         exit 1
@@ -276,7 +276,7 @@ install_to_system() {
     # Copy examples
     if [ -d "examples" ]; then
         cp -r examples/* "$LAZYA_HOME/examples/"
-        success "Installed examples to $LAZYA_HOME/examples"
+        success "Installed examples to ~/.lazya/examples"
     fi
     
     # Create wrapper script

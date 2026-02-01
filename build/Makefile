@@ -418,6 +418,30 @@ src/runtime/RuntimeRegistry.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/RuntimeRegistry.cpp.s
 .PHONY : src/runtime/RuntimeRegistry.cpp.s
 
+src/runtime/RuntimeShim.o: src/runtime/RuntimeShim.cpp.o
+.PHONY : src/runtime/RuntimeShim.o
+
+# target to build an object file
+src/runtime/RuntimeShim.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o
+.PHONY : src/runtime/RuntimeShim.cpp.o
+
+src/runtime/RuntimeShim.i: src/runtime/RuntimeShim.cpp.i
+.PHONY : src/runtime/RuntimeShim.i
+
+# target to preprocess a source file
+src/runtime/RuntimeShim.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.i
+.PHONY : src/runtime/RuntimeShim.cpp.i
+
+src/runtime/RuntimeShim.s: src/runtime/RuntimeShim.cpp.s
+.PHONY : src/runtime/RuntimeShim.s
+
+# target to generate assembly for a file
+src/runtime/RuntimeShim.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lazya.dir/build.make CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.s
+.PHONY : src/runtime/RuntimeShim.cpp.s
+
 src/runtime/StdLib.o: src/runtime/StdLib.cpp.o
 .PHONY : src/runtime/StdLib.o
 
@@ -675,6 +699,9 @@ help:
 	@echo "... src/runtime/RuntimeRegistry.o"
 	@echo "... src/runtime/RuntimeRegistry.i"
 	@echo "... src/runtime/RuntimeRegistry.s"
+	@echo "... src/runtime/RuntimeShim.o"
+	@echo "... src/runtime/RuntimeShim.i"
+	@echo "... src/runtime/RuntimeShim.s"
 	@echo "... src/runtime/StdLib.o"
 	@echo "... src/runtime/StdLib.i"
 	@echo "... src/runtime/StdLib.s"

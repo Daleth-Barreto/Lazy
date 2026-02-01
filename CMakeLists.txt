@@ -78,6 +78,9 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
 )
 
+# Enable exceptions for Ollama/JSON support
+add_compile_options(-fexceptions)
+
 # Source files
 set(LAZYA_SOURCES
     src/main.cpp
@@ -88,6 +91,7 @@ set(LAZYA_SOURCES
     src/runtime/cache_manager.cpp
     src/runtime/RuntimeRegistry.cpp
     src/runtime/StdLib.cpp
+    src/runtime/RuntimeShim.cpp     # Added Shim
     src/runtime/PrintFunction.cpp
     src/runtime/http/HTTPClient.cpp
     src/runtime/StringOps.cpp

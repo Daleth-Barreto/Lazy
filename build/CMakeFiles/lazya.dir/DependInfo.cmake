@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/daleth/Escritorio/lazy/src/main.cpp" "CMakeFiles/lazya.dir/src/main.cpp.o" "gcc" "CMakeFiles/lazya.dir/src/main.cpp.o.d"
   "/home/daleth/Escritorio/lazy/src/runtime/PrintFunction.cpp" "CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o" "gcc" "CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o.d"
   "/home/daleth/Escritorio/lazy/src/runtime/RuntimeRegistry.cpp" "CMakeFiles/lazya.dir/src/runtime/RuntimeRegistry.cpp.o" "gcc" "CMakeFiles/lazya.dir/src/runtime/RuntimeRegistry.cpp.o.d"
+  "/home/daleth/Escritorio/lazy/src/runtime/RuntimeShim.cpp" "CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o" "gcc" "CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o.d"
   "/home/daleth/Escritorio/lazy/src/runtime/StdLib.cpp" "CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.o" "gcc" "CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.o.d"
   "/home/daleth/Escritorio/lazy/src/runtime/StringOps.cpp" "CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o" "gcc" "CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o.d"
   "/home/daleth/Escritorio/lazy/src/runtime/ai/AISemanticOps.cpp" "CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.o" "gcc" "CMakeFiles/lazya.dir/src/runtime/ai/AISemanticOps.cpp.o.d"

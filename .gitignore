@@ -1,0 +1,11 @@
+build/
+.lazya/
+.lazya_cache/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+.DS_Store
+.vscode/
+compile_commands.json

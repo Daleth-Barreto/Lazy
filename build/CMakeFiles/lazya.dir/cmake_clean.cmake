@@ -15,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/lazya.dir/src/runtime/PrintFunction.cpp.o.d"
   "CMakeFiles/lazya.dir/src/runtime/RuntimeRegistry.cpp.o"
   "CMakeFiles/lazya.dir/src/runtime/RuntimeRegistry.cpp.o.d"
+  "CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o"
+  "CMakeFiles/lazya.dir/src/runtime/RuntimeShim.cpp.o.d"
   "CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.o"
   "CMakeFiles/lazya.dir/src/runtime/StdLib.cpp.o.d"
   "CMakeFiles/lazya.dir/src/runtime/StringOps.cpp.o"
