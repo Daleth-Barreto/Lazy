@@ -1,8 +1,8 @@
-# Dockerfile for LazyA Compiler
+# Dockerfile for Lazy Compiler
 # Multi-stage build for optimized image size
 
 # ============================================
-# Stage 1: Builder - Compile LazyA
+# Stage 1: Builder - Compile Lazy
 # ============================================
 FROM ubuntu:24.04 AS builder
 
@@ -56,12 +56,12 @@ RUN apt-get update && apt-get install -y \
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
 # Copy compiled binary from builder
-COPY --from=builder /build/build/lazya /usr/local/bin/lazya-compiler
+COPY --from=builder /build/build/lazy /usr/local/bin/lazy-compiler
 COPY --from=builder /build/examples /examples
 
 # Create wrapper script
 RUN echo '#!/bin/bash' > /usr/local/bin/lazy && \
-    echo '/usr/local/bin/lazya-compiler "$@"' >> /usr/local/bin/lazy && \
+    echo '/usr/local/bin/lazy-compiler "$@"' >> /usr/local/bin/lazy && \
     chmod +x /usr/local/bin/lazy
 
 # Create workspace directory

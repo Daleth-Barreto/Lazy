@@ -30,6 +30,28 @@ lazy program.lazy -r
 ```
 Compila a `a.out` y ejecuta inmediatamente
 
+### Simple Usage Guide
+
+Lazy is designed to be simple.
+
+## Run directly
+```bash
+lazy run my_script.lazy
+```
+
+## Compile
+```bash
+lazy build my_script.lazy
+./a.out
+```
+
+## New Project
+```bash
+lazy new my_project
+cd my_project
+lazy run main.lazy
+```
+
 ### Compilar, ejecutar y mostrar exit code
 ```bash
 lazy program.lazy -e

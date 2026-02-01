@@ -178,7 +178,7 @@ build_compiler() {
             ./scripts/setup_env.sh
         else
             # Download if missing (install from curl scenario)
-            curl -fsSL https://raw.githubusercontent.com/Daleth-Barreto/LazyA/main/scripts/setup_env.sh | bash
+            curl -fsSL https://raw.githubusercontent.com/Daleth-Barreto/Lazy/main/scripts/setup_env.sh | bash
         fi
         
         # Re-check
@@ -196,21 +196,21 @@ build_compiler() {
     
     # Specific runtime sources
     # 1. Core Runtime (C)
-    gcc -c runtime_lib/lazya_runtime.c -o build/runtime/lazya_runtime.o -O2 -fPIC -DLAZYA_RUNTIME_BUILD
+    gcc -c runtime_lib/lazy_runtime.c -o build/runtime/lazy_runtime.o -O2 -fPIC -DLAZY_RUNTIME_BUILD
     
     # 2. AI Runtime (C++)
-    g++ -c src/runtime/ai/OllamaClient.cpp -o build/runtime/OllamaClient.o -I src/runtime -I src/runtime/ai -O2 -fPIC -DLAZYA_RUNTIME_BUILD
-    g++ -c src/runtime/http/HTTPClient.cpp -o build/runtime/HTTPClient.o -I src/runtime -I src/runtime/http -O2 -fPIC -DLAZYA_RUNTIME_BUILD
-    g++ -c src/runtime/ai/AISemanticOps.cpp -o build/runtime/AISemanticOps.o -I src/runtime -I src/runtime/ai -O2 -fPIC -DLAZYA_RUNTIME_BUILD
+    g++ -c src/runtime/ai/OllamaClient.cpp -o build/runtime/OllamaClient.o -I src/runtime -I src/runtime/ai -O2 -fPIC -DLAZY_RUNTIME_BUILD
+    g++ -c src/runtime/http/HTTPClient.cpp -o build/runtime/HTTPClient.o -I src/runtime -I src/runtime/http -O2 -fPIC -DLAZY_RUNTIME_BUILD
+    g++ -c src/runtime/ai/AISemanticOps.cpp -o build/runtime/AISemanticOps.o -I src/runtime -I src/runtime/ai -O2 -fPIC -DLAZY_RUNTIME_BUILD
     
     # Create static library
-    ar rcs build/liblazya_runtime.a \
-        build/runtime/lazya_runtime.o \
+    ar rcs build/liblazy_runtime.a \
+        build/runtime/lazy_runtime.o \
         build/runtime/OllamaClient.o \
         build/runtime/HTTPClient.o \
         build/runtime/AISemanticOps.o
         
-    success "Runtime library built: build/liblazya_runtime.a"
+    success "Runtime library built: build/liblazy_runtime.a"
     
     # Build Compiler
     mkdir -p build
@@ -219,22 +219,22 @@ build_compiler() {
     make -j$(nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || echo 4)
     cd ..
     
-    success "LazyA compiler built successfully"
+    success "Lazy compiler built successfully"
 }
 
 # Install to system
 install_to_system() {
-    info "Installing LazyA to system..."
+    info "Installing Lazy to system..."
     
     # Create directories
-    mkdir -p "$LAZYA_HOME/bin"
-    mkdir -p "$LAZYA_HOME/lib"
-    mkdir -p "$LAZYA_HOME/examples"
+    mkdir -p "$LAZY_HOME/bin"
+    mkdir -p "$LAZY_HOME/lib"
+    mkdir -p "$LAZY_HOME/examples"
     
     # Install Runtime Library
-    if [ -f "build/liblazya_runtime.a" ]; then
-        cp build/liblazya_runtime.a "$LAZYA_HOME/lib/"
-        success "Installed runtime library to ~/.lazya/lib/liblazya_runtime.a"
+    if [ -f "build/liblazy_runtime.a" ]; then
+        cp build/liblazy_runtime.a "$LAZY_HOME/lib/"
+        success "Installed runtime library to ~/.lazy/lib/liblazy_runtime.a"
     else
         error "Runtime library not found! Build failed."
         exit 1
@@ -242,26 +242,26 @@ install_to_system() {
 
     # Fix for missing libcurl dev package (symlink runtime lib)
     # This ensures -lcurl works even if only libcurl.so.4 is installed
-    if [ ! -f "$LAZYA_HOME/lib/libcurl.so" ]; then
+    if [ ! -f "$LAZY_HOME/lib/libcurl.so" ]; then
         # Try to find libcurl in system library cache
         if has_command ldconfig; then
             LIBCURL_PATH=$(ldconfig -p | grep "libcurl.so" | head -n 1 | awk '{print $NF}')
             if [ -n "$LIBCURL_PATH" ] && [ -f "$LIBCURL_PATH" ]; then
-                ln -sf "$LIBCURL_PATH" "$LAZYA_HOME/lib/libcurl.so"
+                ln -sf "$LIBCURL_PATH" "$LAZY_HOME/lib/libcurl.so"
                 info "Created local libcurl.so symlink pointing to $LIBCURL_PATH"
             fi
         fi
     fi
     
-    # Copy binary (renaming to lazya-compiler to avoid conflict with wrapper)
-    if [ -f "build/lazya" ]; then
-        cp build/lazya "$LAZYA_BIN/lazya-compiler"
-        chmod +x "$LAZYA_BIN/lazya-compiler"
-        success "Installed compiler binary to ~/.lazya/bin/lazya-compiler"
+    # Copy binary (renaming to lazy-compiler to avoid conflict with wrapper)
+    if [ -f "build/lazya" ]; then # Original binary name might still be 'lazya'
+        cp build/lazya "$LAZY_BIN/lazy-compiler"
+        chmod +x "$LAZY_BIN/lazy-compiler"
+        success "Installed compiler binary to ~/.lazy/bin/lazy-compiler"
     elif [ -f "build/lazy" ]; then
-        cp build/lazy "$LAZYA_BIN/lazya-compiler"
-        chmod +x "$LAZYA_BIN/lazya-compiler"
-        success "Installed compiler binary to ~/.lazya/bin/lazya-compiler"
+        cp build/lazy "$LAZY_BIN/lazy-compiler"
+        chmod +x "$LAZY_BIN/lazy-compiler"
+        success "Installed compiler binary to ~/.lazy/bin/lazy-compiler"
     else
         error "Compiler binary not found. Build may have failed."
         exit 1
@@ -269,32 +269,32 @@ install_to_system() {
     
     # Copy examples
     if [ -d "examples" ]; then
-        cp -r examples/* "$LAZYA_HOME/examples/"
-        success "Installed examples to ~/.lazya/examples"
+        cp -r examples/* "$LAZY_HOME/examples/"
+        success "Installed examples to ~/.lazy/examples"
     fi
     
     # Create wrapper script
-    cat > "$LAZYA_BIN/lazy" << 'EOF'
+    cat > "$LAZY_BIN/lazy" << 'EOF'
 #!/bin/bash
-# LazyA wrapper - implements -r and -e flags from USO_SIMPLE.md
+# Lazy wrapper - implements -r and -e flags from USO_SIMPLE.md
 # Points to actual ELF binary to avoid recursion
 
-LAZYA_HOME="${LAZYA_HOME:-$HOME/.lazya}"
-BINARY="$LAZYA_HOME/bin/lazya-compiler"
+LAZY_HOME="${LAZY_HOME:-$HOME/.lazy}"
+BINARY="$LAZY_HOME/bin/lazy-compiler"
 
 # Check for special commands first
 if [ "$1" = "uninstall" ]; then
-    echo "Uninstalling LazyA..."
-    rm -rf "$LAZYA_HOME"
+    echo "Uninstalling Lazy..."
+    rm -rf "$LAZY_HOME"
     sudo rm -f /usr/local/bin/lazy 2>/dev/null
-    echo "LazyA uninstalled"
-    echo "You may want to remove LAZYA_HOME from your shell config"
+    echo "Lazy uninstalled"
+    echo "You may want to remove LAZY_HOME from your shell config"
     exit 0
 fi
 
 if [ "$1" = "examples" ]; then
-    echo "Available examples in $LAZYA_HOME/examples:"
-    ls -1 "$LAZYA_HOME/examples/" | grep ".lazy$"
+    echo "Available examples in $LAZY_HOME/examples:"
+    ls -1 "$LAZY_HOME/examples/" | grep ".lazy$"
     exit 0
 fi
 
@@ -311,7 +311,7 @@ if [ "$1" = "new" ]; then
     mkdir "$PROJECT_NAME"
     cat > "$PROJECT_NAME/main.lazy" << 'END_TEMPLATE'
 func main() -> int {
-    println("Hello from LazyA!");
+    println("Hello from Lazy!");
     return 0;
 }
 END_TEMPLATE
@@ -391,7 +391,7 @@ if [ "$RUN_AFTER" = true ]; then
     fi
 fi
 EOF
-    chmod +x "$LAZYA_BIN/lazy"
+    chmod +x "$LAZY_BIN/lazy"
     success "Created lazy wrapper script"
 }
 
@@ -414,8 +414,8 @@ setup_shell() {
             shell_rc="$HOME/.config/fish/config.fish"
             info "Fish shell detected. Manual configuration required."
             info "Add this to your config.fish:"
-            echo "  set -gx LAZYA_HOME \$HOME/.lazya"
-            echo "  set -gx PATH \$LAZYA_HOME/bin \$PATH"
+            echo "  set -gx LAZY_HOME \$HOME/.lazy"
+            echo "  set -gx PATH \$LAZY_HOME/bin \$PATH"
             return 0
             ;;
         *)
@@ -425,23 +425,23 @@ setup_shell() {
     esac
     
     # Add to PATH if not already there
-    if ! grep -q "LAZYA_HOME" "$shell_rc" 2>/dev/null; then
+    if ! grep -q "LAZY_HOME" "$shell_rc" 2>/dev/null; then
         cat >> "$shell_rc" << EOF
 
-# LazyA Configuration
-export LAZYA_HOME="\$HOME/.lazya"
-export PATH="\$LAZYA_HOME/bin:\$PATH"
+# Lazy Configuration
+export LAZY_HOME="\$HOME/.lazy"
+export PATH="\$LAZY_HOME/bin:\$PATH"
 EOF
-        success "Added LazyA to $shell_rc"
+        success "Added Lazy to $shell_rc"
         warning "Please run: source $shell_rc"
     else
-        success "LazyA already in $shell_rc"
+        success "Lazy already in $shell_rc"
     fi
 }
 
 # Docker-based installation
 install_with_docker() {
-    info "Installing LazyA with Docker..."
+    info "Installing Lazy with Docker..."
     
     install_docker
     install_docker_compose
@@ -455,12 +455,12 @@ install_with_docker() {
     fi
     
     # Create wrapper that uses Docker
-    mkdir -p "$LAZYA_BIN"
-    cat > "$LAZYA_BIN/lazy" << 'EOF'
+    mkdir -p "$LAZY_BIN"
+    cat > "$LAZY_BIN/lazy" << 'EOF'
 #!/bin/bash
-docker compose run --rm lazya-compiler lazy "$@"
+docker compose run --rm lazy-compiler lazy "$@"
 EOF
-    chmod +x "$LAZYA_BIN/lazy"
+    chmod +x "$LAZY_BIN/lazy"
     
     setup_shell
     success "Docker-based installation complete"
@@ -468,7 +468,7 @@ EOF
 
 # Native installation
 install_native() {
-    info "Installing LazyA natively..."
+    info "Installing Lazy natively..."
     
     install_ollama
     download_models
@@ -520,10 +520,10 @@ main() {
     echo ""
     info "Verifying installation..."
     
-    export PATH="$LAZYA_BIN:$PATH"
+    export PATH="$LAZY_BIN:$PATH"
     
     if has_command lazy; then
-        success "LazyA installed successfully!"
+        success "Lazy installed successfully!"
         echo ""
         echo -e "${GREEN}========================================${NC}"
         echo -e "${GREEN}  Installation Complete!                ${NC}"
@@ -540,9 +540,10 @@ main() {
         echo ""
     else
         warning "Installation completed but 'lazy' not found in PATH"
-        echo "Please add $LAZYA_BIN to your PATH manually"
+        echo "Please add $LAZY_BIN to your PATH manually"
     fi
 }
 
 # Run installer
 main "$@"
+```

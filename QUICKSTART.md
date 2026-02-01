@@ -2,16 +2,47 @@
 
 ## Overview
 
-LazyA now has a **one-command installation** system inspired by Rust and Node.js installers. No more manual dependency hunting!
+Lazy now has a **one-command installation** system inspired by Rust and Node.js installers. No more manual dependency hunting!
+
+# Quick Start with Lazy
+
+## Installation
+```bash
+curl -sSf https://raw.githubusercontent.com/Daleth-Barreto/Lazy/main/install.sh | sh
+```
+
+## First Program
+```lazy
+func main() -> int {
+    println("Hello Lazy!");
+    return 0;
+}
+```
+Run it:
+```bash
+lazy run main.lazy
+```
+
+## AI Example
+```lazy
+func main() -> int {
+    if "hola" ~= "hello" {
+        println("It's a match!");
+    }
+    return 0;
+}
+```
+Run it (requires AI models):
+```bash
+lazy run ai_test.lazy
+```
 
 ## Installation Methods
 
 ### Method 1: One-Command Install (Recommended)
 
-### Method 1: One-Command Install (Recommended)
-
 ```bash
-curl -sSf https://raw.githubusercontent.com/Daleth-Barreto/LazyA/main/install.sh | sh
+curl -sSf https://raw.githubusercontent.com/Daleth-Barreto/Lazy/main/install.sh | sh
 ```
 
 This single command:
@@ -25,7 +56,6 @@ This single command:
 ### Method 2: Using Make
 
 ```bash
-git clone https://github.com/Daleth-Barreto/LazyA.git
 cd LazyA  
 make quick-install
 ```

@@ -1,20 +1,20 @@
-# LazyA - The AI-Native Programming Language
+# Lazy - The AI-Native Programming Language
 
-LazyA is a compiled programming language with **native AI capabilities**. Write code that reasons, generates, and adapts using embedded AI operators.
+Lazy is a compiled programming language with **native AI capabilities**. Write code that reasons, generates, and adapts using embedded AI operators.
 
 ## Quick Install
 
 **One command to rule them all:**
 
 ```bash
-curl -sSf https://raw.githubusercontent.com/Daleth-Barreto/LazyA/main/install.sh | sh
+curl -sSf https://raw.githubusercontent.com/Daleth-Barreto/Lazy/main/install.sh | sh
 ```
 
 Or clone and run:
 
 ```bash
-git clone https://github.com/Daleth-Barreto/LazyA.git
-cd LazyA
+git clone https://github.com/Daleth-Barreto/Lazy.git
+cd Lazy
 chmod +x install.sh
 ./install.sh
 ```
@@ -62,7 +62,7 @@ lazy run examples/ex01_primes.lazy
 
 ### 2. Semantic Operators
 
-```lazya
+```lazy
 let user_input: string = "What is your name?";
 
 // Semantic equality - uses AI embeddings
@@ -73,7 +73,7 @@ if (user_input ~= "name") {
 
 ### 3. Pattern Matching (Coming Soon)
 
-```lazya
+```lazy
 match command {
     ~= "start" => start_service(),
     ~= "stop" => stop_service(),
@@ -133,8 +133,8 @@ println(response);
 
 ```bash
 # Clone repository
-git clone https://github.com/Daleth-Barreto/LazyA.git
-cd LazyA
+git clone https://github.com/Daleth-Barreto/Lazy.git
+cd Lazy
 
 # Install dependencies (Ubuntu/Debian)
 sudo apt install flex bison llvm-18-dev clang cmake libcurl4-openssl-dev
@@ -153,7 +153,7 @@ make
 ### Hello World
 ```lazy
 func main() -> int {
-    println("Hello from LazyA!");
+    println("Hello from Lazy!");
     return 0;
 }
 ```
@@ -206,7 +206,7 @@ Two pre-configured models:
 ## Project Structure
 
 ```
-lazyA/
+lazy/
 ├── src/
 │   ├── lexer/          # Flex tokenizer
 │   ├── parser/         # Bison grammar
@@ -223,7 +223,7 @@ lazyA/
 
 ### Variables
 ```lazy
-let name: string = "LazyA";
+let name: string = "Lazy";
 let count: int = 42;
 let pi: float = 3.14159;
 auto inferred = "type inference";
@@ -273,12 +273,6 @@ MIT License - See LICENSE file
 
 ---
 
-**LazyA** - *Programming, redefined by AI*
-
-### Alternative: Using Make
-
-```bash
-make quick-install
 ```
 
 ##  Quick Start

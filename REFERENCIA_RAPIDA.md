@@ -78,41 +78,52 @@ Exit code: 42
 
 ---
 
-## Opciones del Comando
+## Commands
 
-| Opción | Descripción |
-|--------|-------------|
-| `lazy file.lazy` | Compilar a `a.out` |
-| `lazy file.lazy -o nombre` | Compilar a `nombre` |
-| `lazy file.lazy -r` | Compilar y ejecutar |
-| `lazy file.lazy -e` | Compilar, ejecutar y mostrar exit code |
-| `lazy file.lazy -o app -e` | Todo junto |
-| `lazy --help` | Mostrar ayuda |
+| Command | Description |
+|---------|-------------|
+| `lazy new <project>` | Create new project |
+| `lazy run <file>` | Run a .lazy file |
+| `lazy build <file>` | Compile to executable |
+| `lazy examples` | List examples |
+| `lazy --version` | Show version |
 
----
-
-## Características del Lenguaje
+## Syntax
 
 ### Variables
 ```lazy
-let x: int = 42;        // Tipo explícito
-auto y = 100;           // Tipo inferido
+let x: int = 10;
+let name: string = "Lazy";
+auto y = 20; // Type inference
 ```
 
-### Funciones
+### Functions
 ```lazy
-func suma(a: int, b: int) -> int {
+func add(a: int, b: int) -> int {
     return a + b;
 }
 ```
 
-### Control de Flujo
+### Control Flow
 ```lazy
-if (x > 10) {
-    return 1;
-} else {
-    return 0;
-}
+if x > 0 { ... } else { ... }
+while x > 0 { ... }
+for i in range(0, 10) { ... }
+```
+
+### AI Operators
+```lazy
+// Semantic Comparison
+if input ~= "hello" { ... }
+
+// Code Generation
+@context
+func magic() -> int { "return 42" }
+```
+
+### AI Models
+- `codellama:7b` (Default)
+- `qwen2:0.5b`
 ```
 
 ### Operadores Bitwise

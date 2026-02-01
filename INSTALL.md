@@ -3,7 +3,7 @@
 ## One-Command Install
 
 ```bash
-curl -sSf https://raw.githubusercontent.com/Daleth-Barreto/LazyA/main/install.sh | sh
+curl -sSf https://raw.githubusercontent.com/Daleth-Barreto/Lazy/main/install.sh | sh
 ```
 
 Or if you have the repository:
@@ -26,7 +26,7 @@ The installer automatically:
 1. **Detects your OS** (Linux or macOS)
 2. **Installs dependencies:**
    - CMake, Make, G++
-   - LLVM 15
+   - LLVM 18
    - Flex & Bison
    - libcurl, nlohmann-json
 3. **Installs Docker** (optional, if chosen)
@@ -34,8 +34,8 @@ The installer automatically:
 5. **Downloads AI models:**
    - `codellama:7b` (for code generation)
    - `qwen2:0.5b` (for faster tasks)
-6. **Builds LazyA compiler** from source
-7. **Installs to `~/.lazya/`**
+6. **Builds Lazy compiler** from source
+7. **Installs to `~/.lazy/`**
 8. **Adds to your PATH**
 
 ## Installation Methods
@@ -63,7 +63,7 @@ The installer gives you 3 options:
 
 ### Add to PATH
 
-The installer adds LazyA to your shell config automatically. Reload your shell:
+The installer adds Lazy to your shell config automatically. Reload your shell:
 
 ```bash
 source ~/.bashrc  # or ~/.zshrc on macOS
@@ -74,30 +74,30 @@ Or restart your terminal.
 ### Verify Installation
 
 ```bash
-lazya --version
-# Output: LazyA 0.1.0
+lazy --version
+# Output: Lazy 0.1.0
 ```
 
 ### Quick Start
 
 ```bash
 # Create new project
-lazya new hello_world
+lazy new hello_world
 cd hello_world
 
 # Edit main.lazy (created automatically)
 # Then run it:
-lazya run main.lazy
+lazy run main.lazy
 ```
 
 ### Run Examples
 
 ```bash
 # List available examples
-lazya examples
+lazy examples
 
 # Run an example
-lazya run ~/.lazya/examples/ex01_primes.lazy
+lazy run ~/.lazy/examples/ex01_primes.lazy
 ```
 
 ## Manual Installation
@@ -108,14 +108,14 @@ If the installer fails or you prefer manual setup:
 
 **Ubuntu/Debian:**
 ```bash
+# Use setup script for reliable installation
 sudo apt-get update
-sudo apt-get install -y build-essential cmake llvm-15 llvm-15-dev \
-    flex bison libcurl4-openssl-dev nlohmann-json3-dev
+./scripts/setup_env.sh
 ```
 
 **macOS:**
 ```bash
-brew install cmake llvm flex bison curl nlohmann-json
+brew install cmake llvm@18 flex bison curl nlohmann-json zstd
 ```
 
 ### 2. Install Ollama
@@ -131,11 +131,11 @@ ollama pull codellama:7b
 ollama pull qwen2:0.5b
 ```
 
-### 4. Build LazyA
+### 4. Build Lazy
 
 ```bash
-git clone https://github.com/Daleth-Barreto/LazyA.git
-cd LazyA
+git clone https://github.com/Daleth-Barreto/Lazy.git
+cd Lazy
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j$(nproc)
@@ -145,7 +145,7 @@ make -j$(nproc)
 
 ```bash
 cd ..
-make install  # Installs to ~/.lazya
+make install  # Installs to ~/.lazy
 ```
 
 ### 6. Add to PATH
@@ -153,8 +153,8 @@ make install  # Installs to ~/.lazya
 Add to `~/.bashrc` or `~/.zshrc`:
 
 ```bash
-export LAZYA_HOME="$HOME/.lazya"
-export PATH="$LAZYA_HOME/bin:$PATH"
+export LAZY_HOME="$HOME/.lazy"
+export PATH="$LAZY_HOME/bin:$PATH"
 ```
 
 Then reload:
@@ -168,13 +168,13 @@ source ~/.bashrc
 If you only want to use Docker:
 
 ```bash
-git clone https://github.com/Daleth-Barreto/LazyA.git
-cd LazyA
+git clone https://github.com/Daleth-Barreto/Lazy.git
+cd Lazy
 docker compose build
 docker compose up -d ollama
 
 # Run compiler
-docker compose run --rm lazya-compiler lazy file.lazy
+docker compose run --rm lazy-compiler lazy file.lazy
 ```
 
 ## Troubleshooting

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(LazyA VERSION 0.1.0 LANGUAGES C CXX)
+project(Lazy VERSION 0.1.0 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -37,19 +37,19 @@ if(ENABLE_AI)
 endif()
 
 # Flex and Bison targets
-FLEX_TARGET(LazyALexer 
+FLEX_TARGET(LazyLexer 
     src/lexer/lexer.l 
     ${CMAKE_CURRENT_BINARY_DIR}/lex.yy.c
     DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/lex.yy.h
 )
 
-BISON_TARGET(LazyAParser 
+BISON_TARGET(LazyParser 
     src/parser/parser.y 
     ${CMAKE_CURRENT_BINARY_DIR}/parser.tab.c
     DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/parser.tab.h
 )
 
-ADD_FLEX_BISON_DEPENDENCY(LazyALexer LazyAParser)
+ADD_FLEX_BISON_DEPENDENCY(LazyLexer LazyParser)
 
 # Sanitization of generated files
 add_custom_command(
@@ -57,7 +57,7 @@ add_custom_command(
     COMMAND sed "s|${CMAKE_SOURCE_DIR}|.|g" ${CMAKE_CURRENT_BINARY_DIR}/lex.yy.c > ${CMAKE_CURRENT_BINARY_DIR}/lex.yy.part
     COMMAND sed "s|${CMAKE_BINARY_DIR}|.|g" ${CMAKE_CURRENT_BINARY_DIR}/lex.yy.part > ${CMAKE_CURRENT_BINARY_DIR}/lex.yy.sane.c
     COMMAND rm ${CMAKE_CURRENT_BINARY_DIR}/lex.yy.part
-    DEPENDS ${FLEX_LazyALexer_OUTPUTS}
+    DEPENDS ${FLEX_LazyLexer_OUTPUTS}
     COMMENT "Sanitizing lex.yy.c absolute paths"
     VERBATIM
 )
@@ -67,7 +67,7 @@ add_custom_command(
     COMMAND sed "s|${CMAKE_SOURCE_DIR}|.|g" ${CMAKE_CURRENT_BINARY_DIR}/parser.tab.c > ${CMAKE_CURRENT_BINARY_DIR}/parser.tab.part
     COMMAND sed "s|${CMAKE_BINARY_DIR}|.|g" ${CMAKE_CURRENT_BINARY_DIR}/parser.tab.part > ${CMAKE_CURRENT_BINARY_DIR}/parser.tab.sane.c
     COMMAND rm ${CMAKE_CURRENT_BINARY_DIR}/parser.tab.part
-    DEPENDS ${BISON_LazyAParser_OUTPUTS}
+    DEPENDS ${BISON_LazyParser_OUTPUTS}
     COMMENT "Sanitizing parser.tab.c absolute paths"
     VERBATIM
 )
@@ -82,7 +82,7 @@ include_directories(
 add_compile_options(-fexceptions)
 
 # Source files
-set(LAZYA_SOURCES
+set(LAZY_SOURCES
     src/main.cpp
     src/ast/ast.cpp
     src/types/type_system.cpp
@@ -105,7 +105,7 @@ set(LAZYA_SOURCES
 
 # Add AI sources if enabled
 if(ENABLE_AI)
-    list(APPEND LAZYA_SOURCES
+    list(APPEND LAZY_SOURCES
         src/ai/embedding_engine.cpp
         src/ai/llm_interface.cpp
         src/ai/context_function.cpp
@@ -113,7 +113,7 @@ if(ENABLE_AI)
 endif()
 
 # Executable
-add_executable(lazya ${LAZYA_SOURCES})
+add_executable(lazy ${LAZY_SOURCES})
 
 # Link LLVM libraries
 llvm_map_components_to_libnames(llvm_libs 
@@ -132,15 +132,15 @@ llvm_map_components_to_libnames(llvm_libs
     x86info
 )
 
-target_link_libraries(lazya ${llvm_libs})
+target_link_libraries(lazy ${llvm_libs})
 
 # Link TensorFlow Lite if enabled
 if(ENABLE_AI)
-    target_link_libraries(lazya tensorflowlite)
+    target_link_libraries(lazy tensorflowlite)
 endif()
 
 # Install
-install(TARGETS lazya DESTINATION bin)
+install(TARGETS lazy DESTINATION bin)
 
 # Tests
 if(BUILD_TESTS AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tests")
