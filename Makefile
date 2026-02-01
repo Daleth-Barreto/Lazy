@@ -4,7 +4,7 @@
 
 # Configuration
 PREFIX ?= /usr/local
-LAZYA_HOME ?= $(HOME)/.lazya
+LAZYA_HOME ?= $(HOME)/.lazy
 BUILD_TYPE ?= Release
 JOBS ?= $(shell nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || echo 4)
 
