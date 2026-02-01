@@ -456,13 +456,13 @@ bool LLVMCodeGen::write_object_file(const std::string& filename) {
 }
 
 bool LLVMCodeGen::link_executable(const std::string& obj_file, const std::string& exe_file) {
-    // Get LAZYA_HOME from environment or default
-    const char* lazya_home_env = std::getenv("LAZYA_HOME");
-    std::string lazya_home = lazya_home_env ? lazya_home_env : (std::string(std::getenv("HOME")) + "/.lazya");
-    std::string lib_path = lazya_home + "/lib";
+    // Get LAZY_HOME from environment or default
+    const char* lazy_home_env = std::getenv("LAZY_HOME");
+    std::string lazy_home = lazy_home_env ? lazy_home_env : (std::string(std::getenv("HOME")) + "/.lazy");
+    std::string lib_path = lazy_home + "/lib";
 
     // Build the link command
-    // gcc <obj_file> -L<lib_path> -llazya_runtime -lcurl -lzstd -lz -lstdc++ -lm -o <exe_file>
+    // gcc <obj_file> -L<lib_path> -llazy_runtime -lzstd -lz -lstdc++ -lm -o <exe_file>
     std::string cmd_link = "gcc " + obj_file;
     
     // Add AI generated objects if any
@@ -470,8 +470,8 @@ bool LLVMCodeGen::link_executable(const std::string& obj_file, const std::string
         cmd_link += " " + ai_obj;
     }
     
-    cmd_link += " -L" + lib_path + " -llazya_runtime";
-    cmd_link += " -lcurl -lzstd -lz -lstdc++ -lm";
+    cmd_link += " -L" + lib_path + " -llazy_runtime";
+    cmd_link += " -lzstd -lz -lstdc++ -lm";
     cmd_link += " -o " + exe_file;
     
     // std::cout << "[Linker] " << cmd_link << "\n";
@@ -480,7 +480,7 @@ bool LLVMCodeGen::link_executable(const std::string& obj_file, const std::string
     if (res != 0) {
         std::cerr << "[Linker] Error: Linking failed.\n";
         std::cerr << "Command: " << cmd_link << "\n";
-        std::cerr << "Ensure library path " << lib_path << " exists and contains liblazya_runtime.a\n";
+        std::cerr << "Ensure library path " << lib_path << " exists and contains liblazy_runtime.a\n";
     }
     
     return (res == 0);
